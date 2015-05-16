@@ -33,7 +33,7 @@ public class CommonProxy
 	    //MinecraftForge.ORE_GEN_BUS.register(new DvGOreGenEventHandler());        
 
 	    // some events, especially tick, are handled on FML bus
-	    //FMLCommonHandler.instance().bus().register(new DvGFMLEventHandler());
+	    FMLCommonHandler.instance().bus().register(new DvGEventHandler());
 	}
 	
 }

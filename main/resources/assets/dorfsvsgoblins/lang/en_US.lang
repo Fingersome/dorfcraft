@@ -1,0 +1,13 @@
+# Creative tabs
+itemGroup.dvgtab=Dwarves vs Goblins
+#
+# Entities
+#
+# Blocks
+#
+tile.dorfsvsgoblins.blockDorfAltar.name=Altar of Krang
+#
+#
+# Items
+item.dorfsvsgoblins.itemBeer.name=Mug of Ale
+item.dorfsvsgoblins.itemMug.name=Empty Mug

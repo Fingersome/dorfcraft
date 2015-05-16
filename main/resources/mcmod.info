@@ -1,0 +1,16 @@
+[
+{
+  "modid": "dorfsvsgoblins",
+  "name": "Dwarves vs Goblins",
+  "description": "A team based pvp mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Fingersome"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

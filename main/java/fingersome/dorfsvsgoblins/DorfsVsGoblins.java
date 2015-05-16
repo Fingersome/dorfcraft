@@ -1,10 +1,10 @@
 package fingersome.dorfsvsgoblins;
 
+import fingersome.dorfsvsgoblins.item.ItemDorfSkull;
 import fingersome.dorfsvsgoblins.item.ItemMug;
 import fingersome.dorfsvsgoblins.item.ItemBeer;
 import fingersome.dorfsvsgoblins.item.ItemList;
 import fingersome.dorfsvsgoblins.proxy.CommonProxy;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.ModelResourceLocation;
@@ -21,9 +21,10 @@ import net.minecraftforge.fml.relauncher.Side;
 @Mod(modid = ModInfo.MODID, version = ModInfo.VERSION)
 public class DorfsVsGoblins
 {
-	@SidedProxy(clientSide = "fingersome.dorfsvsgoblins.proxy.ClientProxy", serverSide = "fingersome.dorfsvsgoblins.proxy.CommonProxy")     
-	public static CommonProxy proxy;
+	@SidedProxy(clientSide = "fingersome.dorfsvsgoblins.proxy.ClientProxy", 
+				serverSide = "fingersome.dorfsvsgoblins.proxy.CommonProxy")     
 	
+	public static CommonProxy proxy;
 	public static ItemList items;
 	//public static BlockList blocks;
 	
@@ -46,7 +47,8 @@ public class DorfsVsGoblins
     	    
     	    	renderItem.getItemModelMesher().register(items.itemMug, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMug) items.itemMug).getName(), "inventory"));
     	    	renderItem.getItemModelMesher().register(items.itemBeer, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemBeer) items.itemBeer).getName(), "inventory"));
-    	
+    	    	renderItem.getItemModelMesher().register(items.itemDorfSkull, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemDorfSkull) items.itemDorfSkull).getName(), "inventory"));
+    	    	
     	}
     } 
     

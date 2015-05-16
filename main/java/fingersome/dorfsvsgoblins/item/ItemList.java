@@ -11,6 +11,7 @@ public class ItemList
 
 	public static Item itemMug;
 	public static Item itemBeer;
+	public static Item itemDorfSkull;
 		
 		
 		public static void Init()
@@ -18,6 +19,7 @@ public class ItemList
 			//INITIALISE ITEMS
 			itemMug = new ItemMug();
 			itemBeer = new ItemBeer();
+			itemDorfSkull = new ItemDorfSkull();
 		}
 		
 		

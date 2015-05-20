@@ -5,10 +5,14 @@ itemGroup.dvgtab=Dwarves vs Goblins
 #
 # Blocks
 #
-tile.dorfsvsgoblins.blockDorfAltar.name=Altar of Krang
+tile.dorfsvsgoblins.blockDorfAltar.name=Altar of Armok
+tile.dorfsvsgoblins.blockAugTable.name=Augmentation Table
 #
 #
 # Items
-item.dorfsvsgoblins.itemBeer.name=Mug of Ale
+item.dorfsvsgoblins.itemMugBeer.name=Mug of Ale
 item.dorfsvsgoblins.itemMug.name=Empty Mug
+item.dorfsvsgoblins.itemHopSeeds.name=Hops Seeds
+item.dorfsvsgoblins.itemHops.name=Hops
+#
 item.dorfsvsgoblins.itemDorfSkull.name=Dwarf Skull

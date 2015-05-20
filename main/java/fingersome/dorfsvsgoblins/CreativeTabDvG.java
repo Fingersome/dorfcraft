@@ -16,7 +16,7 @@ public final class CreativeTabDvG extends CreativeTabs
 	@Override
 	public Item getTabIconItem() 
 	{
-		return ItemList.itemBeer;
+		return ItemList.itemMugBeer;
 	}	
 
 }

@@ -2,7 +2,6 @@ package fingersome.dorfsvsgoblins.proxy;
 
 import fingersome.dorfsvsgoblins.ModInfo;
 import fingersome.dorfsvsgoblins.event.DvGEventHandler;
-import fingersome.dorfsvsgoblins.item.ItemBeer;
 import fingersome.dorfsvsgoblins.item.ItemDorfSkull;
 import fingersome.dorfsvsgoblins.item.ItemList;
 import fingersome.dorfsvsgoblins.item.ItemMug;

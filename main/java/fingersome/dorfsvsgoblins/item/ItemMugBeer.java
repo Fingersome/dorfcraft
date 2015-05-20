@@ -5,11 +5,11 @@ import fingersome.dorfsvsgoblins.ModInfo;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemBeer extends Item
+public class ItemMugBeer extends Item
 {
 	private final String name = ItemInfo.ITEM_BEER_UNLOCALIZED;
 
-	public ItemBeer()
+	public ItemMugBeer()
 	{
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_BEER_UNLOCALIZED);

@@ -1,7 +1,7 @@
 {
 	"parent": "builtin/generated",
 	"textures": {
-		"layer0": "dorfsvsgoblins:items/itemBeer"
+		"layer0": "dorfsvsgoblins:items/itemMugBeer"
 	},
 	"display": {
 		"thirdperson": {

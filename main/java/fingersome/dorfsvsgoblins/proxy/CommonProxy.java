@@ -34,5 +34,12 @@ public class CommonProxy
 	    // some events, especially tick, are handled on FML bus
 	    FMLCommonHandler.instance().bus().register(new DvGEventHandler());
 	}
+
 	
+	public void registerDorfRecipes()
+	{
+		 //REGISTER RECIPES
+		
+		
+	}
 }

@@ -13,13 +13,49 @@ public class ItemList
 	public static Item itemMugBeer;
 	public static Item itemHopSeeds;
 	public static Item itemHops;
+
+	public static Item itemIngotMithril;
+	public static Item itemNuggetMithril;
+	public static Item itemNuggetIron;
+
+	public static Item itemChiselHead;
+	public static Item itemKnifeHead;
+	public static Item itemArrowHead;
+	
+	public static Item itemIronSwordHead;
+	public static Item itemIronSwordHilt;
+	public static Item itemIronPickHead;
+	public static Item itemIronShovelHead;
+	public static Item itemIronAxeHead;
+	public static Item itemIronhoeHead;
+
+	public static Item itemMithrilSwordHead;
+	public static Item itemMithrilSwordHilt;
+	public static Item itemMithrilPickHead;
+	public static Item itemMithrilShovelHead;
+	public static Item itemMithrilAxeHead;
+	public static Item itemMithrilhoeHead;
 	
 	public static Item itemHammerStone;
 	public static Item itemHammerIron;
 	public static Item itemHammerMithril;
 	
 	public static Item itemSwordMithril;
+	public static Item itemPickaxeMithril;
+	public static Item itemShoveMithril;
+	public static Item itemAxeMithril;
+	public static Item itemHoeMithril;
 
+	public static Item itemSalt;
+	public static Item itemHide;
+	public static Item itemCuredHide;
+	public static Item itemPlateLeather;
+	public static Item itemStrips;
+	
+	public static Item itemChain;
+	public static Item itemPlateIron;
+	public static Item itemPlateMithril;
+	
 	public static Item itemLeatherCap;
 	public static Item itemLeatherChest;
 	public static Item itemLeatherLegs;
@@ -39,8 +75,9 @@ public class ItemList
 	public static Item itemMithrilChest;
 	public static Item itemMithrilLegs;
 	public static Item itemMithrilShoes;
-	
+
 	public static Item itemCrown;
+	public static Item itemAlchemyOrb;
 	
 	public static Item itemDorfSkullCrown;
 	public static Item itemDorfSkull;

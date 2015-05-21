@@ -1,4 +1,4 @@
-package fingersome.dorfsvsgoblins.entitiy;
+package fingersome.dorfsvsgoblins.client.entitiy;
 
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;

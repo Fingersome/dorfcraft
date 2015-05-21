@@ -1,7 +1,7 @@
 package fingersome.dorfsvsgoblins.event;
 
 import fingersome.dorfsvsgoblins.ModInfo;
-import fingersome.dorfsvsgoblins.entitiy.ExtendedPropertiesDvG;
+import fingersome.dorfsvsgoblins.client.entitiy.ExtendedPropertiesDvG;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;

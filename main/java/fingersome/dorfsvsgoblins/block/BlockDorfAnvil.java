@@ -2,6 +2,7 @@ package fingersome.dorfsvsgoblins.block;
 
 import fingersome.dorfsvsgoblins.DorfsVsGoblins;
 import fingersome.dorfsvsgoblins.ModInfo;
+import fingersome.dorfsvsgoblins.item.ItemList;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -35,7 +36,7 @@ public class BlockDorfAnvil extends Block
 		
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.setLightOpacity(0);
-        this.setCreativeTab(DorfsVsGoblins.tabDvG);
+        this.setHardness(5.0F);
     }
 
     public boolean isFullCube()
@@ -54,14 +55,19 @@ public class BlockDorfAnvil extends Block
         return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(FACING, enumfacing1);
     }
 
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumFacing side, float hitX, float hitY, float hitZ)
+  //plays the minecraft anvil sound when the block is right clicked with a hammer
+    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-        if (!worldIn.isRemote)
-        {
-            //playerIn.displayGui(new BlockDorfAnvil.Anvil(worldIn, pos));
-        }
-
-        return true;
+    	if(!world.isRemote && 	player.getHeldItem().getItem() == ItemList.itemHammerStone 	|| 
+    						 	player.getHeldItem().getItem() == ItemList.itemHammerIron 	||
+    							player.getHeldItem().getItem() == ItemList.itemHammerMithril)
+    	{
+    		world.playSoundAtEntity(player, "minecraft:random.anvil_land", 1.0F, 1.0F);
+    	}
+    	
+    	//game crashes if you right click with bear hand??
+    	
+		return true;
     }
 
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)

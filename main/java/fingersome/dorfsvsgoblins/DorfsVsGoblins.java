@@ -19,12 +19,24 @@ import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import fingersome.dorfsvsgoblins.block.BlockAugTable;
+import fingersome.dorfsvsgoblins.block.BlockDorfAnvil;
+import fingersome.dorfsvsgoblins.item.ItemArrowHead;
+import fingersome.dorfsvsgoblins.item.ItemChisel;
+import fingersome.dorfsvsgoblins.item.ItemChiselHead;
+import fingersome.dorfsvsgoblins.item.ItemDorfSkull;
+import fingersome.dorfsvsgoblins.item.ItemHammerIron;
+import fingersome.dorfsvsgoblins.item.ItemHammerMithril;
+import fingersome.dorfsvsgoblins.item.ItemHammerStone;
 import fingersome.dorfsvsgoblins.item.ItemHopSeeds;
 import fingersome.dorfsvsgoblins.item.ItemHops;
-import fingersome.dorfsvsgoblins.item.ItemMugBeer;
-import fingersome.dorfsvsgoblins.item.ItemDorfSkull;
+import fingersome.dorfsvsgoblins.item.ItemIngotMithril;
+import fingersome.dorfsvsgoblins.item.ItemKnife;
+import fingersome.dorfsvsgoblins.item.ItemKnifeHead;
 import fingersome.dorfsvsgoblins.item.ItemList;
 import fingersome.dorfsvsgoblins.item.ItemMug;
+import fingersome.dorfsvsgoblins.item.ItemMugBeer;
+import fingersome.dorfsvsgoblins.item.ItemNuggetIron;
+import fingersome.dorfsvsgoblins.item.ItemNuggetMithril;
 import fingersome.dorfsvsgoblins.proxy.CommonProxy;
 
 @Mod(modid = ModInfo.MODID, version = ModInfo.VERSION)
@@ -54,7 +66,7 @@ public class DorfsVsGoblins
 
   	blockAugTable 	= new BlockAugTable();
   	//blockDorfAltar 	= new BlockDorfAltar();
-  	//blockDorfAnvil	= new BlockDorfAnvil();
+  	blockDorfAnvil	= new BlockDorfAnvil();
   	//blockBarrel 	= new BlockBarrel();
  	
  }
@@ -72,16 +84,52 @@ public class DorfsVsGoblins
      if(event.getSide() == Side.CLIENT)
      {
   	    	RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
-  	    	//blocks
-  	    	renderItem.getItemModelMesher().register(Item.getItemFromBlock(blockAugTable), 0, new ModelResourceLocation(ModInfo.MODID + ":" + ((BlockAugTable) blockAugTable).getName(), "inventory"));
+  	    	//BLOCKS
+  	    	renderItem.getItemModelMesher().register(Item.getItemFromBlock(blockAugTable), 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((BlockAugTable) blockAugTable).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(Item.getItemFromBlock(blockDorfAnvil), 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((BlockDorfAnvil) blockDorfAnvil).getName(), "inventory"));
   	    	
-  	    	//items
-  	    	renderItem.getItemModelMesher().register(items.itemMug, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMug) items.itemMug).getName(), "inventory"));
-  	    	renderItem.getItemModelMesher().register(items.itemMugBeer, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMugBeer) items.itemMugBeer).getName(), "inventory"));
-  	    	renderItem.getItemModelMesher().register(items.itemHopSeeds, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHopSeeds) items.itemHopSeeds).getName(), "inventory"));
-  	    	renderItem.getItemModelMesher().register(items.itemHops, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHops) items.itemHops).getName(), "inventory"));
   	    	
-  	    	renderItem.getItemModelMesher().register(items.itemDorfSkull, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemDorfSkull) items.itemDorfSkull).getName(), "inventory"));	
+  	    	//ITEMS
+  	    	renderItem.getItemModelMesher().register(items.itemMug, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMug) items.itemMug).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemMugBeer, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMugBeer) items.itemMugBeer).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemHopSeeds, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHopSeeds) items.itemHopSeeds).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemHops, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHops) items.itemHops).getName(), "inventory"));
+
+  	    	renderItem.getItemModelMesher().register(items.itemIngotMithril, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemIngotMithril) items.itemIngotMithril).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemNuggetMithril, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemNuggetMithril) items.itemNuggetMithril).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemNuggetIron, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemNuggetIron) items.itemNuggetIron).getName(), "inventory"));
+  	    	
+  	    	renderItem.getItemModelMesher().register(items.itemKnifeHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemKnifeHead) items.itemKnifeHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemChiselHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemChiselHead) items.itemChiselHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemArrowHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemArrowHead) items.itemArrowHead).getName(), "inventory"));
+  	    	
+  	    	renderItem.getItemModelMesher().register(items.itemKnife, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemKnife) items.itemKnife).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemChisel, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemChisel) items.itemChisel).getName(), "inventory"));
+
+  	    	renderItem.getItemModelMesher().register(items.itemHammerStone, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHammerStone) items.itemHammerStone).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemHammerIron, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHammerIron) items.itemHammerIron).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemHammerMithril, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHammerMithril) items.itemHammerMithril).getName(), "inventory"));
+  	    	
+  	    	
+  	    	renderItem.getItemModelMesher().register(items.itemDorfSkull, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemDorfSkull) items.itemDorfSkull).getName(), "inventory"));	
   	}
      
      //REGISTER EVENT LISTENERS

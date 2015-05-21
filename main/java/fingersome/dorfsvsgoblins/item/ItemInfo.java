@@ -14,10 +14,17 @@ public class ItemInfo
 	public static final String ITEM_NUGGET_MITHRIL_UNLOCALIZED 		= "itemNuggetMithril";
 	public static final String ITEM_NUGGET_IRON_UNLOCALIZED 		= "itemNuggetIron";
 
-	public static final String ITEM_CHISEL_HEAD_UNLOCALIZED 		= "itemChiselHead";
 	public static final String ITEM_KNIFE_HEAD_UNLOCALIZED 			= "itemKnifeHead";
+	public static final String ITEM_CHISEL_HEAD_UNLOCALIZED 		= "itemChiselHead";
 	public static final String ITEM_ARROW_HEAD_UNLOCALIZED 			= "itemArrowHead";
-
+	
+	public static final String ITEM_KNIFE_UNLOCALIZED 				= "itemKnife";
+	public static final String ITEM_CHISEL_UNLOCALIZED 				= "itemChisel";
+	
+	public static final String ITEM_HAMMER_STONE_UNLOCALIZED 		= "itemHammerStone";
+	public static final String ITEM_HAMMER_IRON_UNLOCALIZED 		= "itemHammerIron";
+	public static final String ITEM_HAMMER_MITHRIL_UNLOCALIZED 		= "itemHammerMithril";
+	
 	public static final String ITEM_IRON_SWORD_HEAD_UNLOCALIZED		= "itemIronSwordHead";
 	public static final String ITEM_IRON_SWORD_HILT_UNLOCALIZED 	= "itemIronSwordHilt";
 	public static final String ITEM_IRON_PICK_HEAD_UNLOCALIZED 		= "itemIronPickHead";
@@ -32,9 +39,9 @@ public class ItemInfo
 	public static final String ITEM_MITHRIL_AXE_HEAD_UNLOCALIZED 		= "itemMithrilAxeHead";
 	public static final String ITEM_MITHRIL_HOE_HEAD_UNLOCALIZED 		= "itemMithrilhoeHead";
 
-	public static final String ITEM_HAMMER_STONE_UNLOCALIZED 		= "itemHammerStone";
-	public static final String ITEM_HAMMER_IRON_UNLOCALIZED 		= "itemHammerIron";
-	public static final String ITEM_HAMMER_MITHRIL_UNLOCALIZED 		= "itemHammerMithril";
+	public static final String ITEM_FLINT_KNIFE_UNLOCALIZED 		= "itemFlintKnife";
+	public static final String ITEM_FLINT_PICK_UNLOCALIZED 			= "itemFlintPickaxe";
+	public static final String ITEM_FLINT_AXE_UNLOCALIZED 			= "itemFlintAxe";
 	
 	public static final String ITEM_SWORD_MITHRIL_UNLOCALIZED 		= "itemSwordMithril";
 	public static final String ITEM_PICK_MITHRIL_UNLOCALIZED 		= "itemPickaxeMithril";

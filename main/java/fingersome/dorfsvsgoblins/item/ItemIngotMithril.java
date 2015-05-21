@@ -6,13 +6,13 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemHops extends Item
+public class ItemIngotMithril extends Item
 {
-	private final String name = ItemInfo.ITEM_HOPS_UNLOCALIZED;
+	private final String name = ItemInfo.ITEM_INGOT_MITHRIL_UNLOCALIZED;
 
-	public ItemHops()
-	{
-		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_HOPS_UNLOCALIZED);
+	public ItemIngotMithril()
+	{		
+		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_INGOT_MITHRIL_UNLOCALIZED);
 		setCreativeTab(DorfsVsGoblins.tabDvG);
 
 		GameRegistry.registerItem(this, name);

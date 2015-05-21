@@ -14,7 +14,6 @@ public class ItemDorfSkull extends Item
 		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_SKULL_UNLOCALIZED);
 		setCreativeTab(DorfsVsGoblins.tabDvG);
-		setMaxStackSize(8);
 	}
 	
 	public String getName()

@@ -4,9 +4,11 @@ import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import fingersome.dorfsvsgoblins.DorfsVsGoblins;
 import fingersome.dorfsvsgoblins.ModInfo;
+import fingersome.dorfsvsgoblins.item.*;
 
 public class ItemList 
 {
+	
 	//DECLARE ITEMS
 
 	public static Item itemMug;
@@ -18,9 +20,16 @@ public class ItemList
 	public static Item itemNuggetMithril;
 	public static Item itemNuggetIron;
 
+	public static Item itemKnifeHead;	
 	public static Item itemChiselHead;
-	public static Item itemKnifeHead;
 	public static Item itemArrowHead;
+	
+	public static Item itemKnife;
+	public static Item itemChisel;
+
+	public static Item itemHammerStone;
+	public static Item itemHammerIron;
+	public static Item itemHammerMithril;
 	
 	public static Item itemIronSwordHead;
 	public static Item itemIronSwordHilt;
@@ -35,10 +44,10 @@ public class ItemList
 	public static Item itemMithrilShovelHead;
 	public static Item itemMithrilAxeHead;
 	public static Item itemMithrilhoeHead;
-	
-	public static Item itemHammerStone;
-	public static Item itemHammerIron;
-	public static Item itemHammerMithril;
+
+	public static Item itemFlintKnife;
+	public static Item itemFlintPickaxe;
+	public static Item itemFlintAxe;
 	
 	public static Item itemSwordMithril;
 	public static Item itemPickaxeMithril;
@@ -86,12 +95,29 @@ public class ItemList
 		public static void Init()
 		{
 			//INITIALISE ITEMS
-			itemMug = new ItemMug();
-			itemMugBeer = new ItemMugBeer();
-			itemHopSeeds = new ItemHopSeeds();
-			itemHops = new ItemHops();
+			itemMug 		= new ItemMug();
+			itemMugBeer 	= new ItemMugBeer();
+			itemHopSeeds 	= new ItemHopSeeds();
+			itemHops		= new ItemHops();
+
+			itemIngotMithril 	= new ItemIngotMithril();
+			itemNuggetMithril 	= new ItemNuggetMithril();				
+			itemNuggetIron 		= new ItemNuggetIron();
+
+			itemKnifeHead 	= new ItemKnifeHead();
+			itemChiselHead 	= new ItemChiselHead();		
+			itemArrowHead 	= new ItemArrowHead();
+
+			itemKnife 	= new ItemKnife();
+			itemChisel 	= new ItemChisel();	
+
+			itemHammerStone 	= new ItemHammerStone();	
+			itemHammerIron 		= new ItemHammerIron();	
+			itemHammerMithril 	= new ItemHammerMithril();	
+
 			
 			itemDorfSkull = new ItemDorfSkull();
+			
 		}
 		
 }

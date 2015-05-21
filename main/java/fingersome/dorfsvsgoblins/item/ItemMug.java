@@ -12,10 +12,11 @@ public class ItemMug extends Item
 
 	public ItemMug()
 	{
-		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_MUG_UNLOCALIZED);
 		setCreativeTab(DorfsVsGoblins.tabDvG);
 		setMaxStackSize(1);
+
+		GameRegistry.registerItem(this, name);
 	}
 	
 	public String getName()

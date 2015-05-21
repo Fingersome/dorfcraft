@@ -6,14 +6,15 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-public class ItemHops extends Item
+public class ItemHammerMithril extends Item
 {
-	private final String name = ItemInfo.ITEM_HOPS_UNLOCALIZED;
+	private final String name = ItemInfo.ITEM_HAMMER_MITHRIL_UNLOCALIZED;
 
-	public ItemHops()
+	public ItemHammerMithril()
 	{
-		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_HOPS_UNLOCALIZED);
+		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_HAMMER_MITHRIL_UNLOCALIZED);
 		setCreativeTab(DorfsVsGoblins.tabDvG);
+		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);
 	}

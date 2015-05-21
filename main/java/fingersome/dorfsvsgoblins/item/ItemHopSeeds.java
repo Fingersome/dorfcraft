@@ -12,10 +12,10 @@ public class ItemHopSeeds extends Item
 
 	public ItemHopSeeds()
 	{
-		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_HOPS_SEEDS_UNLOCALIZED);
 		setCreativeTab(DorfsVsGoblins.tabDvG);
-		setMaxStackSize(1);
+
+		GameRegistry.registerItem(this, name);
 	}
 	
 	public String getName()

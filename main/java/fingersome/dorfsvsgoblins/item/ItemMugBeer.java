@@ -11,10 +11,11 @@ public class ItemMugBeer extends Item
 
 	public ItemMugBeer()
 	{
-		GameRegistry.registerItem(this, name);
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_BEER_UNLOCALIZED);
 		setCreativeTab(DorfsVsGoblins.tabDvG);
 		setMaxStackSize(1);
+
+		GameRegistry.registerItem(this, name);
 	}
 	
 	public String getName()

@@ -24,4 +24,14 @@ private final String name = "blockAugTable";
 	{
 		return name;
 	}
+	
+	public boolean isFullCube()
+    {
+        return false;
+    }
+
+    public boolean isOpaqueCube()
+    {
+        return false;
+    }
 }

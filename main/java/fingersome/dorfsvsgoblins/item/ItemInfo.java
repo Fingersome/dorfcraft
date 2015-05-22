@@ -30,7 +30,7 @@ public class ItemInfo
 	public static final String ITEM_IRON_PICK_HEAD_UNLOCALIZED 		= "itemIronPickHead";
 	public static final String ITEM_IRON_SHOVEL_HEAD_UNLOCALIZED 	= "itemIronShovelHead";
 	public static final String ITEM_IRON_AXE_HEAD_UNLOCALIZED 		= "itemIronAxeHead";
-	public static final String ITEM_IRON_HOE_HEAD_UNLOCALIZED 		= "itemIronhoeHead";
+	public static final String ITEM_IRON_HOE_HEAD_UNLOCALIZED 		= "itemIronHoeHead";
 
 	public static final String ITEM_MITHRIL_SWORD_HEAD_UNLOCALIZED		= "itemMithrilSwordHead";
 	public static final String ITEM_MITHRIL_SWORD_HILT_UNLOCALIZED 		= "itemMithrilSwordHilt";

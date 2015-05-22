@@ -9,6 +9,7 @@ import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockState;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.BlockPos;
@@ -32,7 +33,7 @@ public class BlockDorfAnvil extends Block
     	super(Material.iron);
 		GameRegistry.registerBlock(this, name);
 		setUnlocalizedName(ModInfo.MODID + "." + name);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
+		setCreativeTab(CreativeTabs.tabDecorations);
 		
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.setLightOpacity(0);
@@ -58,15 +59,18 @@ public class BlockDorfAnvil extends Block
   //plays the minecraft anvil sound when the block is right clicked with a hammer
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-    	if(!world.isRemote && 	player.getHeldItem().getItem() == ItemList.itemHammerStone 	|| 
-    						 	player.getHeldItem().getItem() == ItemList.itemHammerIron 	|| 	//game crashes if you right click with bare hand??
-    							player.getHeldItem().getItem() == ItemList.itemHammerMithril)
+    	if(player.getHeldItem() == null)
+    	{
+    		return true;
+    	}
+    	else if(!world.isRemote && player.getHeldItem().getItem() == ItemList.itemHammerStone 	|| 
+    						 		player.getHeldItem().getItem() == ItemList.itemHammerIron 	||
+    						 		player.getHeldItem().getItem() == ItemList.itemHammerMithril)
     	{
     		world.playSoundAtEntity(player, "minecraft:random.anvil_land", 1.0F, 1.0F);
     	}
-    	
-    		
-		return false;
+ 
+		return true;
     }
 
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)

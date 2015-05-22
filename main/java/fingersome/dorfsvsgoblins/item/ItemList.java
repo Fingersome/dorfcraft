@@ -36,7 +36,7 @@ public class ItemList
 	public static Item itemIronPickHead;
 	public static Item itemIronShovelHead;
 	public static Item itemIronAxeHead;
-	public static Item itemIronhoeHead;
+	public static Item itemIronHoeHead;
 
 	public static Item itemMithrilSwordHead;
 	public static Item itemMithrilSwordHilt;
@@ -114,7 +114,13 @@ public class ItemList
 			itemHammerStone 	= new ItemHammerStone();	
 			itemHammerIron 		= new ItemHammerIron();	
 			itemHammerMithril 	= new ItemHammerMithril();	
-
+			
+			itemIronSwordHead 	= new ItemIronSwordHead();	
+			itemIronSwordHilt 	= new ItemIronSwordHilt();	
+			itemIronPickHead 	= new ItemIronPickHead();	
+			itemIronShovelHead 	= new ItemIronShovelHead();	
+			itemIronAxeHead 	= new ItemIronAxeHead();	
+			itemIronHoeHead 	= new ItemIronHoeHead();	
 			
 			itemDorfSkull = new ItemDorfSkull();
 			

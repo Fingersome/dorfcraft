@@ -7,7 +7,7 @@ itemGroup.dvgtab=Dwarves vs Goblins
 #
 tile.dorfsvsgoblins.blockAugTable.name=Augmentation Table
 tile.dorfsvsgoblins.blockDorfAltar.name=Altar of Armok
-tile.dorfsvsgoblins.blockDorfAnvil.name=Dwarven Anvil
+tile.dorfsvsgoblins.blockDorfAnvil.name=Anvil
 tile.dorfsvsgoblins.blockBarrel.name=Barrel
 #
 #
@@ -21,7 +21,7 @@ item.dorfsvsgoblins.itemIngotMithril.name=Mithril Ingot
 item.dorfsvsgoblins.itemNuggetMithril.name=Mithril Nugget
 item.dorfsvsgoblins.itemNuggetIron.name=Iron Nugget
 #
-item.dorfsvsgoblins.itemKnifeHead.name=Knife Head
+item.dorfsvsgoblins.itemKnifeHead.name=Knife Blade
 item.dorfsvsgoblins.itemChiselHead.name=Chisel Head
 item.dorfsvsgoblins.itemArrowHead.name=Arrowhead
 #
@@ -31,6 +31,13 @@ item.dorfsvsgoblins.itemChisel.name=Chisel
 item.dorfsvsgoblins.itemHammerStone.name=Stone Hammer
 item.dorfsvsgoblins.itemHammerIron.name=Iron Hammer
 item.dorfsvsgoblins.itemHammerMithril.name=Mithril Hammer
+#
+item.dorfsvsgoblins.itemIronSwordHead.name=Iron Sword Blade
+item.dorfsvsgoblins.itemIronSwordHilt.name=Iron Sword Guard
+item.dorfsvsgoblins.itemIronPickHead.name=Iron Pickaxe Head
+item.dorfsvsgoblins.itemIronShovelHead.name=Iron Shovel Head
+item.dorfsvsgoblins.itemIronAxeHead.name=Iron Axe Head
+item.dorfsvsgoblins.itemIronHoeHead.name=Iron Hoe Blade
 #
 item.dorfsvsgoblins.itemCrownSkull.name=Kingly Skull
 item.dorfsvsgoblins.itemDorfSkull.name=Dwarf Skull

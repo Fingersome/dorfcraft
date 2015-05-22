@@ -1,11 +1,19 @@
 package fingersome.dorfsvsgoblins;
 
+import java.util.Iterator;
+import java.util.List;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.RenderItem;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -30,12 +38,19 @@ import fingersome.dorfsvsgoblins.item.ItemHammerStone;
 import fingersome.dorfsvsgoblins.item.ItemHopSeeds;
 import fingersome.dorfsvsgoblins.item.ItemHops;
 import fingersome.dorfsvsgoblins.item.ItemIngotMithril;
+import fingersome.dorfsvsgoblins.item.ItemIronAxeHead;
+import fingersome.dorfsvsgoblins.item.ItemIronHoeHead;
+import fingersome.dorfsvsgoblins.item.ItemIronPickHead;
+import fingersome.dorfsvsgoblins.item.ItemIronShovelHead;
+import fingersome.dorfsvsgoblins.item.ItemIronSwordHead;
+import fingersome.dorfsvsgoblins.item.ItemIronSwordHilt;
 import fingersome.dorfsvsgoblins.item.ItemKnife;
 import fingersome.dorfsvsgoblins.item.ItemKnifeHead;
 import fingersome.dorfsvsgoblins.item.ItemList;
 import fingersome.dorfsvsgoblins.item.ItemMug;
 import fingersome.dorfsvsgoblins.item.ItemMugBeer;
 import fingersome.dorfsvsgoblins.item.ItemNuggetIron;
+import fingersome.dorfsvsgoblins.item.ItemNuggetMithril;
 import fingersome.dorfsvsgoblins.item.ItemNuggetMithril;
 import fingersome.dorfsvsgoblins.proxy.CommonProxy;
 
@@ -128,7 +143,19 @@ public class DorfsVsGoblins
   	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHammerIron) items.itemHammerIron).getName(), "inventory"));
   	    	renderItem.getItemModelMesher().register(items.itemHammerMithril, 0, 
   	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHammerMithril) items.itemHammerMithril).getName(), "inventory"));
-  	    	
+
+  	    	renderItem.getItemModelMesher().register(items.itemIronSwordHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemIronSwordHead) items.itemIronSwordHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemIronSwordHilt, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemIronSwordHilt) items.itemIronSwordHilt).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemIronPickHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemIronPickHead) items.itemIronPickHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemIronShovelHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemIronShovelHead) items.itemIronShovelHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemIronAxeHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemIronAxeHead) items.itemIronAxeHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemIronHoeHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemIronHoeHead) items.itemIronHoeHead).getName(), "inventory"));
   	    	
   	    	renderItem.getItemModelMesher().register(items.itemDorfSkull, 0, 
   	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemDorfSkull) items.itemDorfSkull).getName(), "inventory"));	
@@ -155,13 +182,178 @@ public class DorfsVsGoblins
          
  	
 	//REMOVE VANILLA CRAFTING RECIPES
+    List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
 		
+    Iterator<IRecipe> itemstoremove = recipes.iterator();
+     		          
+     	while (itemstoremove.hasNext()) 
+     	{	ItemStack stack = itemstoremove.next().getRecipeOutput();
+     	
+     	/**TOOL RECIPES**/
+ 		if (stack != null && stack.getItem() 		== Items.wooden_sword)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.wooden_pickaxe)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.wooden_shovel)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.wooden_axe)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.wooden_hoe)
+ 		itemstoremove.remove();
+
+ 		if (stack != null && stack.getItem() 		== Items.stone_sword)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.stone_pickaxe)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.stone_shovel)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.stone_axe)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.stone_hoe)
+ 		itemstoremove.remove();
+ 		
+ 		if (stack != null && stack.getItem() 		== Items.golden_sword)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.golden_pickaxe)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.golden_shovel)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.golden_axe)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.golden_hoe)
+ 		itemstoremove.remove();
+
+ 		else if (stack != null && stack.getItem()	== Items.shears)
+ 		itemstoremove.remove();
+ 		
+ 		if (stack != null && stack.getItem() 		== Items.diamond_sword)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.diamond_pickaxe)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.diamond_shovel)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.diamond_axe)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.diamond_hoe)
+ 		itemstoremove.remove();
+
+ 		if (stack != null && stack.getItem() 		== Items.leather_boots)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.leather_leggings)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.leather_chestplate)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.leather_helmet)
+ 		itemstoremove.remove();
+ 		
+ 		/**ARMOR RECIPES**/
+ 		if (stack != null && stack.getItem() 		== Items.chainmail_boots)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.chainmail_leggings)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.chainmail_chestplate)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.chainmail_helmet)
+ 		itemstoremove.remove();
+
+ 		if (stack != null && stack.getItem() 		== Items.golden_boots)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.golden_leggings)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.golden_chestplate)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.golden_helmet)
+ 		itemstoremove.remove();
+ 		
+ 		if (stack != null && stack.getItem() 		== Items.iron_boots)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.iron_leggings)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.iron_chestplate)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.iron_helmet)
+ 		itemstoremove.remove();
+ 		
+ 		if (stack != null && stack.getItem() 		== Items.diamond_boots)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.diamond_leggings)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.diamond_chestplate)
+ 		itemstoremove.remove();
+ 		else if (stack != null && stack.getItem()	== Items.diamond_helmet)
+ 		itemstoremove.remove();
+ 		
+ 		/**BLOCK RECIPES**/
+ 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.crafting_table))
+ 	 	 	itemstoremove.remove();
+ 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.anvil))
+ 	 	itemstoremove.remove();
+
+ 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.stonebrick))
+ 	 	itemstoremove.remove();
+     	};
 	
 	
 	//REMOVE VANILLA SMELTING RECIPES
-		
-	
      
+    //REMOVE VANILLA ITEMS FROM CREATIVE
+    Items.wooden_sword.setCreativeTab(null);
+    Items.wooden_pickaxe.setCreativeTab(null);
+    Items.wooden_shovel.setCreativeTab(null);
+    Items.wooden_axe.setCreativeTab(null);
+    Items.wooden_hoe.setCreativeTab(null);
+
+    Items.stone_sword.setCreativeTab(null);
+    Items.stone_pickaxe.setCreativeTab(null);
+    Items.stone_shovel.setCreativeTab(null);
+    Items.stone_axe.setCreativeTab(null);
+    Items.stone_hoe.setCreativeTab(null);
+    
+    Items.golden_sword.setCreativeTab(null);
+    Items.golden_pickaxe.setCreativeTab(null);
+    Items.golden_shovel.setCreativeTab(null);
+    Items.golden_axe.setCreativeTab(null);
+    Items.golden_hoe.setCreativeTab(null);
+         	
+    Items.diamond_sword.setCreativeTab(null);
+    Items.diamond_pickaxe.setCreativeTab(null);
+    Items.diamond_shovel.setCreativeTab(null);
+    Items.diamond_axe.setCreativeTab(null);
+    Items.diamond_hoe.setCreativeTab(null);
+
+    Items.leather_boots.setCreativeTab(null);
+    Items.leather_leggings.setCreativeTab(null);
+    Items.leather_chestplate.setCreativeTab(null);
+    Items.leather_helmet.setCreativeTab(null);
+    
+    Items.chainmail_boots.setCreativeTab(null);
+    Items.chainmail_leggings.setCreativeTab(null);
+    Items.chainmail_chestplate.setCreativeTab(null);
+    Items.chainmail_helmet.setCreativeTab(null);
+
+    Items.golden_boots.setCreativeTab(null);
+    Items.golden_leggings.setCreativeTab(null);
+    Items.golden_chestplate.setCreativeTab(null);
+    Items.golden_helmet.setCreativeTab(null);
+    Items.golden_horse_armor.setCreativeTab(null);
+    
+    Items.iron_boots.setCreativeTab(null);
+    Items.iron_leggings.setCreativeTab(null);
+    Items.iron_chestplate.setCreativeTab(null);
+    Items.iron_helmet.setCreativeTab(null);
+    Items.iron_horse_armor.setCreativeTab(null);
+    
+    Items.diamond_boots.setCreativeTab(null);
+    Items.diamond_leggings.setCreativeTab(null);
+    Items.diamond_chestplate.setCreativeTab(null);
+    Items.diamond_helmet.setCreativeTab(null);
+    Items.diamond_horse_armor.setCreativeTab(null);
+     
+    //REMOVE VANILLA BLOCKS FROM CREAIVE
+	Blocks.anvil.setCreativeTab(null);
+
+	Blocks.stonebrick.setCreativeTab(null);
+	
  }
 
  @EventHandler

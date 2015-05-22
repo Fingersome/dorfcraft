@@ -53,6 +53,7 @@ public class DorfsVsGoblins
 	public static Block blockDorfAnvil;
 	public static Block blockBarrel;
 	
+	
 	public static CreativeTabs tabDvG = new CreativeTabDvG(CreativeTabs.getNextID(), "dvgtab");
     
     
@@ -87,6 +88,7 @@ public class DorfsVsGoblins
   	    	//BLOCKS
   	    	renderItem.getItemModelMesher().register(Item.getItemFromBlock(blockAugTable), 0, 
   	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((BlockAugTable) blockAugTable).getName(), "inventory"));
+  	    	
   	    	renderItem.getItemModelMesher().register(Item.getItemFromBlock(blockDorfAnvil), 0, 
   	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((BlockDorfAnvil) blockDorfAnvil).getName(), "inventory"));
   	    	
@@ -176,7 +178,7 @@ public class DorfsVsGoblins
  {
      // DEBUG
      System.out.println("Server starting");
-         
+     
  }
 
  @EventHandler

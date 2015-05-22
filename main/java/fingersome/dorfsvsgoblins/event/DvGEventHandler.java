@@ -1,10 +1,11 @@
 package fingersome.dorfsvsgoblins.event;
 
 import fingersome.dorfsvsgoblins.ModInfo;
-import fingersome.dorfsvsgoblins.client.entitiy.ExtendedPropertiesDvG;
+import fingersome.dorfsvsgoblins.client.entitiy.ExtendedPlayer;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldSettings.GameType;
 import net.minecraftforge.event.entity.EntityEvent.EntityConstructing;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.NameFormat;
@@ -17,15 +18,17 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class DvGEventHandler 
 {
-    @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
-    public void onEntityConstructing(EntityConstructing event)
-    {
-        // Register extended entity properties
-        if (event.entity instanceof EntityPlayer)
-        {
-            event.entity.registerExtendedProperties("ExtendedPropertiesDvG", new ExtendedPropertiesDvG());
-        }
-    }  
+	@SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+	public void onEntityConstructing(EntityConstructing event)
+	{
+	/*
+	Checks to see if the entity being constructed is the correct type for the extended properties to be added 
+	The null check is used to make sure properties are only registered once per entity
+	*/
+	if (event.entity instanceof EntityPlayer && ExtendedPlayer.get((EntityPlayer) event.entity) == null)
+	ExtendedPlayer.register((EntityPlayer) event.entity);
+
+	}
 
     @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
     public void onLogInEvent(PlayerLoggedInEvent event)
@@ -39,7 +42,16 @@ public class DvGEventHandler
     {	
     	if (event.username == "fingersome") 
     	{
-    	    event.displayname = event.username + " the Great and Powerful";
+    	    event.displayname = "High King Uric McFingersmith";
     	} 
+    }
+    
+    @SubscribeEvent(priority=EventPriority.NORMAL, receiveCanceled=true)
+    public void respawnEvent(PlayerEvent.PlayerRespawnEvent event)
+    {
+    	//if (event.player.getExtendedProperties() etc)
+    	{
+    		event.player.setGameType(GameType.SPECTATOR);
+    	}
     }
 }

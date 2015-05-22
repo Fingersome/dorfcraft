@@ -59,15 +59,14 @@ public class BlockDorfAnvil extends Block
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
     {
     	if(!world.isRemote && 	player.getHeldItem().getItem() == ItemList.itemHammerStone 	|| 
-    						 	player.getHeldItem().getItem() == ItemList.itemHammerIron 	||
+    						 	player.getHeldItem().getItem() == ItemList.itemHammerIron 	|| 	//game crashes if you right click with bare hand??
     							player.getHeldItem().getItem() == ItemList.itemHammerMithril)
     	{
     		world.playSoundAtEntity(player, "minecraft:random.anvil_land", 1.0F, 1.0F);
     	}
     	
-    	//game crashes if you right click with bear hand??
-    	
-		return true;
+    		
+		return false;
     }
 
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)

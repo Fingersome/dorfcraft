@@ -1,5 +1,11 @@
 # Creative tabs
 itemGroup.dvgtab=Dwarves vs Goblins
+itemGroup.farmingtab=Farming
+itemGroup.miningtab=Mining
+itemGroup.smithingtab=Smithing
+itemGroup.masonrytab=Masonry
+itemGroup.carpentrytab=Carpentry
+itemGroup.enchantingtab=Enchanting
 #
 # Entities
 #

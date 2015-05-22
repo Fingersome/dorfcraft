@@ -13,7 +13,6 @@ public class ItemIronSwordHilt extends Item
 	public ItemIronSwordHilt()
 	{
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_IRON_SWORD_HILT_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
 		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);

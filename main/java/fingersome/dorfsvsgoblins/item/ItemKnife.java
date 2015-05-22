@@ -13,7 +13,7 @@ public class ItemKnife extends Item
 	public ItemKnife()
 	{
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_KNIFE_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
+		setCreativeTab(CreativeTabs.tabTools);
 		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);

@@ -13,7 +13,6 @@ public class ItemIronPickHead extends Item
 	public ItemIronPickHead()
 	{
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_IRON_PICK_HEAD_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
 		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);

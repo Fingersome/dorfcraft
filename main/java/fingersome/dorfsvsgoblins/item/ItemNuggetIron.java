@@ -13,7 +13,6 @@ public class ItemNuggetIron extends Item
 	public ItemNuggetIron()
 	{		
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_NUGGET_IRON_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
 
 		GameRegistry.registerItem(this, name);
 	}

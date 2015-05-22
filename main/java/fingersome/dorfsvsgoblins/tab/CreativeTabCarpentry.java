@@ -1,14 +1,15 @@
-package fingersome.dorfsvsgoblins;
+package fingersome.dorfsvsgoblins.tab;
 
 import fingersome.dorfsvsgoblins.item.ItemList;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
-public final class CreativeTabDvG extends CreativeTabs
+public final class CreativeTabCarpentry extends CreativeTabs
 {
 
-    public CreativeTabDvG(int id, String name)
+    public CreativeTabCarpentry(int id, String name)
     {
         super(id, name);
     }
@@ -16,7 +17,7 @@ public final class CreativeTabDvG extends CreativeTabs
 	@Override
 	public Item getTabIconItem() 
 	{
-		return ItemList.itemMugBeer;
+		return Item.getItemFromBlock(Blocks.planks);
 	}	
 
 }

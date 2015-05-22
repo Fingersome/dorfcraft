@@ -21,7 +21,7 @@ public class ItemHammerStone extends Item
 	public ItemHammerStone()
 	{
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_HAMMER_STONE_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
+		setCreativeTab(CreativeTabs.tabTools);
 		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);

@@ -13,7 +13,6 @@ public class ItemIronShovelHead extends Item
 	public ItemIronShovelHead()
 	{
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_IRON_SHOVEL_HEAD_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
 		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);

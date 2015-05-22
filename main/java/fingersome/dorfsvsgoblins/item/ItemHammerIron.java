@@ -13,7 +13,7 @@ public class ItemHammerIron extends Item
 	public ItemHammerIron()
 	{
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_HAMMER_IRON_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
+		setCreativeTab(CreativeTabs.tabTools);
 		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);

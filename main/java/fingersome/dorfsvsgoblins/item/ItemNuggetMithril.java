@@ -13,7 +13,7 @@ public class ItemNuggetMithril extends Item
 	public ItemNuggetMithril()
 	{		
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_NUGGET_MITHRIL_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
+		setCreativeTab(CreativeTabs.tabMaterials);
 
 		GameRegistry.registerItem(this, name);
 	}

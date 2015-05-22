@@ -13,7 +13,7 @@ public class ItemChisel extends Item
 	public ItemChisel()
 	{
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_CHISEL_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
+		setCreativeTab(CreativeTabs.tabTools);
 		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);

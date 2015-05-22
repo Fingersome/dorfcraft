@@ -22,7 +22,6 @@ private final String name = "blockAugTable";
 		super(Material.rock);
 		GameRegistry.registerBlock(this, name);
 		setUnlocalizedName(ModInfo.MODID + "." + name);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
 		setBlockBounds(0, 0, 0, 1, (float) 0.75f, 1);
 	}
 	

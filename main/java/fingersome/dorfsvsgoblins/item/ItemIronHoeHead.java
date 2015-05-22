@@ -13,7 +13,6 @@ public class ItemIronHoeHead extends Item
 	public ItemIronHoeHead()
 	{
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_IRON_HOE_HEAD_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
 		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);

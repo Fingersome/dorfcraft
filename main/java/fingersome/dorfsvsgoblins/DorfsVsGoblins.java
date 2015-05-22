@@ -53,6 +53,13 @@ import fingersome.dorfsvsgoblins.item.ItemNuggetIron;
 import fingersome.dorfsvsgoblins.item.ItemNuggetMithril;
 import fingersome.dorfsvsgoblins.item.ItemNuggetMithril;
 import fingersome.dorfsvsgoblins.proxy.CommonProxy;
+import fingersome.dorfsvsgoblins.tab.CreativeTabCarpentry;
+import fingersome.dorfsvsgoblins.tab.CreativeTabDvG;
+import fingersome.dorfsvsgoblins.tab.CreativeTabEnchanting;
+import fingersome.dorfsvsgoblins.tab.CreativeTabFarming;
+import fingersome.dorfsvsgoblins.tab.CreativeTabMasonry;
+import fingersome.dorfsvsgoblins.tab.CreativeTabMining;
+import fingersome.dorfsvsgoblins.tab.CreativeTabSmithing;
 
 @Mod(modid = ModInfo.MODID, version = ModInfo.VERSION)
 public class DorfsVsGoblins
@@ -68,8 +75,14 @@ public class DorfsVsGoblins
 	public static Block blockDorfAnvil;
 	public static Block blockBarrel;
 	
-	
+
 	public static CreativeTabs tabDvG = new CreativeTabDvG(CreativeTabs.getNextID(), "dvgtab");
+	public static CreativeTabs tabFarming = new CreativeTabFarming(CreativeTabs.getNextID(), "farmingtab");
+	public static CreativeTabs tabMining = new CreativeTabMining(CreativeTabs.getNextID(), "miningtab");
+	public static CreativeTabs tabSmithing = new CreativeTabSmithing(CreativeTabs.getNextID(), "smithingtab");
+	public static CreativeTabs tabMasonry = new CreativeTabMasonry(CreativeTabs.getNextID(), "masonrytab");
+	public static CreativeTabs tabCarpentry = new CreativeTabCarpentry(CreativeTabs.getNextID(), "carpentrytab");
+	public static CreativeTabs tabEnchanting = new CreativeTabEnchanting(CreativeTabs.getNextID(), "enchantingtab");
     
     
  @EventHandler
@@ -168,7 +181,7 @@ public class DorfsVsGoblins
      //REGISTER CRAFTING RECIPES
      
      
-     //REGISTER DWARVEN ANVIL RECIPES
+     //REGISTER ANVIL RECIPES
      
      
  }
@@ -284,8 +297,10 @@ public class DorfsVsGoblins
  		itemstoremove.remove();
  		
  		/**BLOCK RECIPES**/
+ 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.planks))
+ 	 	itemstoremove.remove();
  		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.crafting_table))
- 	 	 	itemstoremove.remove();
+ 	 	itemstoremove.remove();
  		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.anvil))
  	 	itemstoremove.remove();
 
@@ -348,11 +363,76 @@ public class DorfsVsGoblins
     Items.diamond_chestplate.setCreativeTab(null);
     Items.diamond_helmet.setCreativeTab(null);
     Items.diamond_horse_armor.setCreativeTab(null);
-     
-    //REMOVE VANILLA BLOCKS FROM CREAIVE
+    
+    //SORT ITEMS INTO CREAIVETABS
+    //FARMING
+    Items.wheat_seeds.setCreativeTab(tabFarming);
+    Items.wheat.setCreativeTab(tabFarming);
+    Items.pumpkin_seeds.setCreativeTab(tabFarming);
+    Items.melon_seeds.setCreativeTab(tabFarming);
+    Items.melon.setCreativeTab(tabFarming);
+    Items.potato.setCreativeTab(tabFarming);
+    Items.poisonous_potato.setCreativeTab(tabFarming);
+    Items.carrot.setCreativeTab(tabFarming);
+    Items.reeds.setCreativeTab(tabFarming);
+    items.itemHopSeeds.setCreativeTab(tabFarming);
+    items.itemHops.setCreativeTab(tabFarming);
+    
+    //MINING
+    
+    
+    //SMITHING
+    Items.iron_ingot.setCreativeTab(tabSmithing);
+    items.itemNuggetIron.setCreativeTab(tabSmithing);
+    Items.gold_ingot.setCreativeTab(tabSmithing);
+    Items.gold_nugget.setCreativeTab(tabSmithing);
+    items.itemIngotMithril.setCreativeTab(tabSmithing);
+    items.itemNuggetMithril.setCreativeTab(tabSmithing);
+    items.itemIronSwordHead.setCreativeTab(tabSmithing);
+    items.itemIronSwordHilt.setCreativeTab(tabSmithing);
+    items.itemIronPickHead.setCreativeTab(tabSmithing);
+    items.itemIronShovelHead.setCreativeTab(tabSmithing);
+    items.itemIronAxeHead.setCreativeTab(tabSmithing);
+    items.itemIronHoeHead.setCreativeTab(tabSmithing);
+    items.itemKnifeHead.setCreativeTab(tabSmithing);
+    items.itemChiselHead.setCreativeTab(tabSmithing);
+    items.itemArrowHead.setCreativeTab(tabSmithing);
+    
+    //ENCHANTING
+    
+    //REMOVE VANILLA BLOCKS FROM CREATIVE TABS
 	Blocks.anvil.setCreativeTab(null);
+	
+    //SORT BLOCKS INTO CREAIVETABS
+    
+	//MINING
+	Blocks.coal_ore.setCreativeTab(tabMining);
+	Blocks.iron_ore.setCreativeTab(tabMining);
+	Blocks.gold_ore.setCreativeTab(tabMining);
+	Blocks.redstone_ore.setCreativeTab(tabMining);
+	Blocks.lapis_ore.setCreativeTab(tabMining);
+	Blocks.emerald_ore.setCreativeTab(tabMining);
+	Blocks.diamond_ore.setCreativeTab(tabMining);
+    
+	//SMITHING
+	blockDorfAnvil.setCreativeTab(DorfsVsGoblins.tabSmithing);
+	
+	//MASONRY
+	Blocks.stonebrick.setCreativeTab(tabMasonry);
 
-	Blocks.stonebrick.setCreativeTab(null);
+	//CARPENTRY
+	Blocks.planks.setCreativeTab(tabCarpentry);
+	
+	//ENCHANTING
+    Blocks.enchanting_table.setCreativeTab(tabEnchanting);
+	blockAugTable.setCreativeTab(tabEnchanting);
+	
+	//MODIFY VANILLA BLOCK ATTRIBUTES
+	Blocks.cobblestone.setHardness(1.5F);
+	Blocks.stone.setHardness(2.0F);
+	Blocks.stonebrick.setHardness(4.0F);
+	Blocks.sandstone.setHardness(3.0F);
+	Blocks.red_sandstone.setHardness(3.0F);
 	
  }
 

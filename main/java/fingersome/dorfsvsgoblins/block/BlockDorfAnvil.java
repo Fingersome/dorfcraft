@@ -33,7 +33,6 @@ public class BlockDorfAnvil extends Block
     	super(Material.iron);
 		GameRegistry.registerBlock(this, name);
 		setUnlocalizedName(ModInfo.MODID + "." + name);
-		setCreativeTab(CreativeTabs.tabDecorations);
 		
         this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         this.setLightOpacity(0);

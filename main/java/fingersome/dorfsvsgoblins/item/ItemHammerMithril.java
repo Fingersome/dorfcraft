@@ -13,7 +13,7 @@ public class ItemHammerMithril extends Item
 	public ItemHammerMithril()
 	{
 		setUnlocalizedName(ModInfo.MODID + "." + ItemInfo.ITEM_HAMMER_MITHRIL_UNLOCALIZED);
-		setCreativeTab(DorfsVsGoblins.tabDvG);
+		setCreativeTab(CreativeTabs.tabTools);
 		setMaxStackSize(1);
 
 		GameRegistry.registerItem(this, name);

@@ -415,6 +415,7 @@ public class DorfsVsGoblins
 	Blocks.diamond_ore.setCreativeTab(tabMining);
     
 	//SMITHING
+	Blocks.furnace.setCreativeTab(DorfsVsGoblins.tabSmithing);
 	blockDorfAnvil.setCreativeTab(DorfsVsGoblins.tabSmithing);
 	
 	//MASONRY

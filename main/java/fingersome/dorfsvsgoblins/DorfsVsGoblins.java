@@ -14,8 +14,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
+import net.minecraftforge.fml.common.Mod.Instance;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -25,9 +27,11 @@ import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppedEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import fingersome.dorfsvsgoblins.block.BlockAugTable;
 import fingersome.dorfsvsgoblins.block.BlockDorfAnvil;
+import fingersome.dorfsvsgoblins.client.gui.GuiHandler;
 import fingersome.dorfsvsgoblins.item.ItemArrowHead;
 import fingersome.dorfsvsgoblins.item.ItemChisel;
 import fingersome.dorfsvsgoblins.item.ItemChiselHead;
@@ -74,16 +78,22 @@ public class DorfsVsGoblins
 	public static Block blockDorfAltar;
 	public static Block blockDorfAnvil;
 	public static Block blockBarrel;
-	
 
-	public static CreativeTabs tabDvG = new CreativeTabDvG(CreativeTabs.getNextID(), "dvgtab");
-	public static CreativeTabs tabFarming = new CreativeTabFarming(CreativeTabs.getNextID(), "farmingtab");
-	public static CreativeTabs tabMining = new CreativeTabMining(CreativeTabs.getNextID(), "miningtab");
-	public static CreativeTabs tabSmithing = new CreativeTabSmithing(CreativeTabs.getNextID(), "smithingtab");
-	public static CreativeTabs tabMasonry = new CreativeTabMasonry(CreativeTabs.getNextID(), "masonrytab");
-	public static CreativeTabs tabCarpentry = new CreativeTabCarpentry(CreativeTabs.getNextID(), "carpentrytab");
-	public static CreativeTabs tabEnchanting = new CreativeTabEnchanting(CreativeTabs.getNextID(), "enchantingtab");
-    
+	public static CreativeTabs tabDvG = 		new CreativeTabDvG(CreativeTabs.getNextID(), 		"dvgtab");
+	public static CreativeTabs tabFarming = 	new CreativeTabFarming(CreativeTabs.getNextID(), 	"farmingtab");
+	public static CreativeTabs tabMining = 		new CreativeTabMining(CreativeTabs.getNextID(), 	"miningtab");
+	public static CreativeTabs tabSmithing = 	new CreativeTabSmithing(CreativeTabs.getNextID(), 	"smithingtab");
+	public static CreativeTabs tabMasonry = 	new CreativeTabMasonry(CreativeTabs.getNextID(), 	"masonrytab");
+	public static CreativeTabs tabCarpentry = 	new CreativeTabCarpentry(CreativeTabs.getNextID(), 	"carpentrytab");
+	public static CreativeTabs tabEnchanting = 	new CreativeTabEnchanting(CreativeTabs.getNextID(), "enchantingtab");
+	
+	public GuiHandler guiHandler = new GuiHandler();
+	public static final int guiIDAugTable = 0;	 
+	public static final int guiIDDorfAnvil = 2;
+	
+	
+	@Instance(ModInfo.MODID)
+	public static DorfsVsGoblins instance;
     
  @EventHandler
  // preInit "Run before anything else. Read your config, create blocks, items, 
@@ -99,7 +109,7 @@ public class DorfsVsGoblins
   	//blockBarrel 	= new BlockBarrel();
  	
  }
-
+ 
  @EventHandler
  // load "Do your mod setup. Build whatever data structures you care about. Register recipes."
  public void init(FMLInitializationEvent event) 
@@ -107,6 +117,8 @@ public class DorfsVsGoblins
      // DEBUG
      System.out.println("init()");
 
+     NetworkRegistry.INSTANCE.registerGuiHandler(this, guiHandler);
+     
      items.Init();  
      
      //RENDER ITEM RENDERS
@@ -379,7 +391,10 @@ public class DorfsVsGoblins
     items.itemHops.setCreativeTab(tabFarming);
     
     //MINING
-    
+    Items.coal.setCreativeTab(tabMining);
+    Items.redstone.setCreativeTab(tabMining);
+    Items.emerald.setCreativeTab(tabMining);
+    Items.diamond.setCreativeTab(tabMining);
     
     //SMITHING
     Items.iron_ingot.setCreativeTab(tabSmithing);
@@ -399,12 +414,18 @@ public class DorfsVsGoblins
     items.itemArrowHead.setCreativeTab(tabSmithing);
     
     //ENCHANTING
+    Items.experience_bottle.setCreativeTab(tabEnchanting);
+    Items.book.setCreativeTab(tabEnchanting);
     
     //REMOVE VANILLA BLOCKS FROM CREATIVE TABS
 	Blocks.anvil.setCreativeTab(null);
 	
     //SORT BLOCKS INTO CREAIVETABS
-    
+
+	//MINING
+	Blocks.brown_mushroom.setCreativeTab(tabFarming);
+	Blocks.red_mushroom.setCreativeTab(tabFarming);
+	
 	//MINING
 	Blocks.coal_ore.setCreativeTab(tabMining);
 	Blocks.iron_ore.setCreativeTab(tabMining);

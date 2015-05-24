@@ -17,7 +17,7 @@ public final class CreativeTabMining extends CreativeTabs
 	@Override
 	public Item getTabIconItem() 
 	{
-		return Item.getItemFromBlock(Blocks.iron_ore);
+		return Items.iron_pickaxe;
 	}	
 
 }

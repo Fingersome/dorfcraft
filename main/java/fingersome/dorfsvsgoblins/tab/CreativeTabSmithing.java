@@ -19,7 +19,7 @@ public final class CreativeTabSmithing extends CreativeTabs
 	@Override
 	public Item getTabIconItem() 
 	{
-		return Item.getItemFromBlock(DorfsVsGoblins.blockDorfAnvil);
+		return ItemList.itemHammerIron;
 	}	
 
 }

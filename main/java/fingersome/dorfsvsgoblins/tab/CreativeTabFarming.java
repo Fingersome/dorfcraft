@@ -17,7 +17,7 @@ public final class CreativeTabFarming extends CreativeTabs
 	@Override
 	public Item getTabIconItem() 
 	{
-		return Item.getItemFromBlock(Blocks.melon_block);
+		return Items.iron_hoe;
 	}	
 
 }

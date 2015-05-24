@@ -17,7 +17,7 @@ public final class CreativeTabCarpentry extends CreativeTabs
 	@Override
 	public Item getTabIconItem() 
 	{
-		return Item.getItemFromBlock(Blocks.planks);
+		return Items.iron_axe;
 	}	
 
 }

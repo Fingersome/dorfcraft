@@ -1,9 +1,14 @@
 package fingersome.dorfsvsgoblins.block;
 
+import java.util.Random;
+
 import fingersome.dorfsvsgoblins.DorfsVsGoblins;
 import fingersome.dorfsvsgoblins.ModInfo;
+//import fingersome.dorfsvsgoblins.container.ContainerDorfAnvil;
 import fingersome.dorfsvsgoblins.item.ItemList;
+//import fingersome.dorfsvsgoblins.tile.TileEntityDorfAnvil;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyDirection;
@@ -12,6 +17,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.world.IBlockAccess;
@@ -27,7 +33,7 @@ public class BlockDorfAnvil extends Block
 {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     private final String name = "blockDorfAnvil";
-    
+        
     public BlockDorfAnvil()
     {
     	super(Material.iron);
@@ -54,23 +60,23 @@ public class BlockDorfAnvil extends Block
         EnumFacing enumfacing1 = placer.getHorizontalFacing().rotateY();
         return super.onBlockPlaced(worldIn, pos, facing, hitX, hitY, hitZ, meta, placer).withProperty(FACING, enumfacing1);
     }
-
-  //plays the minecraft anvil sound when the block is right clicked with a hammer
-    public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
+    
+    public boolean onBlockActivated (World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ) 
     {
-    	if(player.getHeldItem() == null)
+    	if(world.isRemote && player.getHeldItem() == null)
     	{
-    		return true;
-    	}
-    	else if(!world.isRemote && player.getHeldItem().getItem() == ItemList.itemHammerStone 	|| 
-    						 		player.getHeldItem().getItem() == ItemList.itemHammerIron 	||
-    						 		player.getHeldItem().getItem() == ItemList.itemHammerMithril)
-    	{
+			player.openGui(ModInfo.MODID, DorfsVsGoblins.guiIDDorfAnvil, world, (int)player.posX, (int)player.posY, (int)player.posZ);
+			System.out.println("anvil clicked");
+		}
+    	else if(!world.isRemote &&
+    			player.getHeldItem().getItem() == ItemList.itemHammerStone 	|| 
+				player.getHeldItem().getItem() == ItemList.itemHammerIron 	||
+				player.getHeldItem().getItem() == ItemList.itemHammerMithril)
+		{
     		world.playSoundAtEntity(player, "minecraft:random.anvil_land", 1.0F, 1.0F);
-    	}
- 
-		return true;
-    }
+		}
+			return true;
+	}
 
     public void setBlockBoundsBasedOnState(IBlockAccess worldIn, BlockPos pos)
     {
@@ -128,5 +134,11 @@ public class BlockDorfAnvil extends Block
 	{
 		return name;		
 	}
-
+	/*
+	@Override
+	public TileEntity createNewTileEntity(World worldIn, int meta) 
+	{
+		return new TileEntityDorfAnvil();
+	}
+	 */
 }

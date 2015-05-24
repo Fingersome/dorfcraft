@@ -17,7 +17,7 @@ public final class CreativeTabEnchanting extends CreativeTabs
 	@Override
 	public Item getTabIconItem() 
 	{
-		return Item.getItemFromBlock(Blocks.enchanting_table);
+		return Items.enchanted_book;
 	}	
 
 }

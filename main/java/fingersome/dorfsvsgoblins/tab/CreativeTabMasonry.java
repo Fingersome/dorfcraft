@@ -17,7 +17,7 @@ public final class CreativeTabMasonry extends CreativeTabs
 	@Override
 	public Item getTabIconItem() 
 	{
-		return Item.getItemFromBlock(Blocks.stonebrick);
+		return ItemList.itemChisel;
 	}	
 
 }

@@ -42,9 +42,10 @@ private final String name = "blockAugTable";
     
     public boolean onBlockActivated(World world, BlockPos pos, IBlockState state, EntityPlayer player, EnumFacing side, float hitX, float hitY, float hitZ)
     {
-        if (!world.isRemote)
+        if (world.isRemote)
         {
-            player.displayGui(new BlockAnvil.Anvil(world, pos));
+        	player.openGui(ModInfo.MODID, DorfsVsGoblins.guiIDAugTable, world, (int)player.posX, (int)player.posY, (int)player.posZ);
+			System.out.println("augmentation table clicked");
         }
 
         return true;

@@ -2,6 +2,7 @@ package fingersome.dorfsvsgoblins.container;
 
 import fingersome.dorfsvsgoblins.DorfsVsGoblins;
 import fingersome.dorfsvsgoblins.crafting.DorfAnvilCraftingManager;
+import fingersome.dorfsvsgoblins.tile.TileEntityDorfAnvil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -60,6 +61,12 @@ public class ContainerDorfAnvil extends Container
 	}
 	
 	
+	public ContainerDorfAnvil(InventoryPlayer playerInventory, TileEntityDorfAnvil tileEntityDorfAnvil) 
+	{
+
+	}
+
+
 	public void onCraftMatrixChanged(IInventory iiventory) 
 	{
 		craftResult.setInventorySlotContents(0, DorfAnvilCraftingManager.getInstance().findMatchingRecipe(craftMatrix, worldObj));

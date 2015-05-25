@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import fingersome.dorfsvsgoblins.ModInfo;
 import fingersome.dorfsvsgoblins.container.ContainerDorfAnvil;
+import fingersome.dorfsvsgoblins.tile.TileEntityDorfAnvil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -21,6 +22,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 public class GuiDorfAnvil extends GuiContainer
 {
 	private ResourceLocation texture = new ResourceLocation(ModInfo.MODID + ":" + "textures/gui/guiDorfAnvil.png");
+	public TileEntityDorfAnvil tileDorfAnvil;
 	
 	public GuiDorfAnvil(InventoryPlayer invPlayer, World world, int x, int y, int z) 
 	{
@@ -28,6 +30,7 @@ public class GuiDorfAnvil extends GuiContainer
 		
 		this.xSize = 176;
 		this.ySize = 166;
+		
 		
 	}
 
@@ -47,8 +50,12 @@ public class GuiDorfAnvil extends GuiContainer
 	{
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
-	
+		int k = (this.width - this.xSize) / 2;
+	    int l = (this.height - this.ySize) / 2;
+		
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
+ 
+		drawTexturedModalRect(guiLeft + 88, guiTop + 30, 176, 0, 14, 28);
 	}
 	
 }

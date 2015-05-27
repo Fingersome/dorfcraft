@@ -36,9 +36,15 @@ import fingersome.dorfsvsgoblins.item.ItemArrowHead;
 import fingersome.dorfsvsgoblins.item.ItemChisel;
 import fingersome.dorfsvsgoblins.item.ItemChiselHead;
 import fingersome.dorfsvsgoblins.item.ItemDorfSkull;
+import fingersome.dorfsvsgoblins.item.ItemFlintAxe;
+import fingersome.dorfsvsgoblins.item.ItemFlintPickaxe;
+import fingersome.dorfsvsgoblins.item.ItemFlintKnife;
 import fingersome.dorfsvsgoblins.item.ItemHammerIron;
 import fingersome.dorfsvsgoblins.item.ItemHammerMithril;
 import fingersome.dorfsvsgoblins.item.ItemHammerStone;
+import fingersome.dorfsvsgoblins.item.ItemHide;
+import fingersome.dorfsvsgoblins.item.ItemHideCured;
+import fingersome.dorfsvsgoblins.item.ItemHoeMithril;
 import fingersome.dorfsvsgoblins.item.ItemHopSeeds;
 import fingersome.dorfsvsgoblins.item.ItemHops;
 import fingersome.dorfsvsgoblins.item.ItemIngotMithril;
@@ -48,6 +54,17 @@ import fingersome.dorfsvsgoblins.item.ItemIronPickHead;
 import fingersome.dorfsvsgoblins.item.ItemIronShovelHead;
 import fingersome.dorfsvsgoblins.item.ItemIronSwordHead;
 import fingersome.dorfsvsgoblins.item.ItemIronSwordHilt;
+import fingersome.dorfsvsgoblins.item.ItemMithrilAxeHead;
+import fingersome.dorfsvsgoblins.item.ItemMithrilHoeHead;
+import fingersome.dorfsvsgoblins.item.ItemMithrilPickHead;
+import fingersome.dorfsvsgoblins.item.ItemMithrilShovelHead;
+import fingersome.dorfsvsgoblins.item.ItemMithrilSwordHead;
+import fingersome.dorfsvsgoblins.item.ItemMithrilSwordHilt;
+import fingersome.dorfsvsgoblins.item.ItemAxeMithril;
+import fingersome.dorfsvsgoblins.item.ItemMithrilHoeHead;
+import fingersome.dorfsvsgoblins.item.ItemMithrilPickHead;
+import fingersome.dorfsvsgoblins.item.ItemMithrilShovelHead;
+import fingersome.dorfsvsgoblins.item.ItemMithrilSwordHead;
 import fingersome.dorfsvsgoblins.item.ItemKnife;
 import fingersome.dorfsvsgoblins.item.ItemKnifeHead;
 import fingersome.dorfsvsgoblins.item.ItemList;
@@ -56,6 +73,18 @@ import fingersome.dorfsvsgoblins.item.ItemMugBeer;
 import fingersome.dorfsvsgoblins.item.ItemNuggetIron;
 import fingersome.dorfsvsgoblins.item.ItemNuggetMithril;
 import fingersome.dorfsvsgoblins.item.ItemNuggetMithril;
+import fingersome.dorfsvsgoblins.item.ItemPickaxeMithril;
+import fingersome.dorfsvsgoblins.item.ItemPlankAcacia;
+import fingersome.dorfsvsgoblins.item.ItemPlankBirch;
+import fingersome.dorfsvsgoblins.item.ItemPlankDarkOak;
+import fingersome.dorfsvsgoblins.item.ItemPlankJungle;
+import fingersome.dorfsvsgoblins.item.ItemPlankOak;
+import fingersome.dorfsvsgoblins.item.ItemPlankPine;
+import fingersome.dorfsvsgoblins.item.ItemPlateLeather;
+import fingersome.dorfsvsgoblins.item.ItemSalt;
+import fingersome.dorfsvsgoblins.item.ItemShovelMithril;
+import fingersome.dorfsvsgoblins.item.ItemStrips;
+import fingersome.dorfsvsgoblins.item.ItemSwordMithril;
 import fingersome.dorfsvsgoblins.proxy.CommonProxy;
 import fingersome.dorfsvsgoblins.tab.CreativeTabCarpentry;
 import fingersome.dorfsvsgoblins.tab.CreativeTabDvG;
@@ -181,6 +210,61 @@ public class DorfsVsGoblins
   	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemIronAxeHead) items.itemIronAxeHead).getName(), "inventory"));
   	    	renderItem.getItemModelMesher().register(items.itemIronHoeHead, 0, 
   	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemIronHoeHead) items.itemIronHoeHead).getName(), "inventory"));
+
+  	    	renderItem.getItemModelMesher().register(items.itemMithrilSwordHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMithrilSwordHead) items.itemMithrilSwordHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemMithrilSwordHilt, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMithrilSwordHilt) items.itemMithrilSwordHilt).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemMithrilPickHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMithrilPickHead) items.itemMithrilPickHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemMithrilShovelHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMithrilShovelHead) items.itemMithrilShovelHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemMithrilAxeHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMithrilAxeHead) items.itemMithrilAxeHead).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemMithrilHoeHead, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemMithrilHoeHead) items.itemMithrilHoeHead).getName(), "inventory"));
+  	    	
+  	    	renderItem.getItemModelMesher().register(items.itemFlintKnife, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemFlintKnife) items.itemFlintKnife).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemFlintPickaxe, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemFlintPickaxe) items.itemFlintPickaxe).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemFlintAxe, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemFlintAxe) items.itemFlintAxe).getName(), "inventory"));
+
+  	    	renderItem.getItemModelMesher().register(items.itemSwordMithril, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemSwordMithril) items.itemSwordMithril).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemPickaxeMithril, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemPickaxeMithril) items.itemPickaxeMithril).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemShovelMithril, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemShovelMithril) items.itemShovelMithril).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemAxeMithril, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemAxeMithril) items.itemAxeMithril).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemHoeMithril, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHoeMithril) items.itemHoeMithril).getName(), "inventory"));
+
+  	    	renderItem.getItemModelMesher().register(items.itemPlankOak, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemPlankOak) items.itemPlankOak).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemPlankPine, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemPlankPine) items.itemPlankPine).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemPlankBirch, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemPlankBirch) items.itemPlankBirch).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemPlankJungle, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemPlankJungle) items.itemPlankJungle).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemPlankAcacia, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemPlankAcacia) items.itemPlankAcacia).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemPlankDarkOak, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemPlankDarkOak) items.itemPlankDarkOak).getName(), "inventory"));
+
+  	    	renderItem.getItemModelMesher().register(items.itemSalt, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemSalt) items.itemSalt).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemHide, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHide) items.itemHide).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemHideCured, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemHideCured) items.itemHideCured).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemPlateLeather, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemPlateLeather) items.itemPlateLeather).getName(), "inventory"));
+  	    	renderItem.getItemModelMesher().register(items.itemStrips, 0, 
+  	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemStrips) items.itemStrips).getName(), "inventory"));
   	    	
   	    	renderItem.getItemModelMesher().register(items.itemDorfSkull, 0, 
   	    	new ModelResourceLocation(ModInfo.MODID + ":" + ((ItemDorfSkull) items.itemDorfSkull).getName(), "inventory"));	
@@ -409,6 +493,12 @@ public class DorfsVsGoblins
     items.itemIronShovelHead.setCreativeTab(tabSmithing);
     items.itemIronAxeHead.setCreativeTab(tabSmithing);
     items.itemIronHoeHead.setCreativeTab(tabSmithing);
+    items.itemMithrilSwordHead.setCreativeTab(tabSmithing);
+    items.itemMithrilSwordHilt.setCreativeTab(tabSmithing);
+    items.itemMithrilPickHead.setCreativeTab(tabSmithing);
+    items.itemMithrilShovelHead.setCreativeTab(tabSmithing);
+    items.itemMithrilAxeHead.setCreativeTab(tabSmithing);
+    items.itemMithrilHoeHead.setCreativeTab(tabSmithing);
     items.itemKnifeHead.setCreativeTab(tabSmithing);
     items.itemChiselHead.setCreativeTab(tabSmithing);
     items.itemArrowHead.setCreativeTab(tabSmithing);
@@ -422,18 +512,13 @@ public class DorfsVsGoblins
 	
     //SORT BLOCKS INTO CREAIVETABS
 
-	//MINING
+	//FARMING
 	Blocks.brown_mushroom.setCreativeTab(tabFarming);
 	Blocks.red_mushroom.setCreativeTab(tabFarming);
 	
 	//MINING
-	Blocks.coal_ore.setCreativeTab(tabMining);
 	Blocks.iron_ore.setCreativeTab(tabMining);
 	Blocks.gold_ore.setCreativeTab(tabMining);
-	Blocks.redstone_ore.setCreativeTab(tabMining);
-	Blocks.lapis_ore.setCreativeTab(tabMining);
-	Blocks.emerald_ore.setCreativeTab(tabMining);
-	Blocks.diamond_ore.setCreativeTab(tabMining);
     
 	//SMITHING
 	Blocks.furnace.setCreativeTab(DorfsVsGoblins.tabSmithing);

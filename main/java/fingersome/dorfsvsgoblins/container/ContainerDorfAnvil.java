@@ -69,7 +69,9 @@ public class ContainerDorfAnvil extends Container
 
 	public void onCraftMatrixChanged(IInventory iiventory) 
 	{
-		craftResult.setInventorySlotContents(0, DorfAnvilCraftingManager.getInstance().findMatchingRecipe(craftMatrix, worldObj));
+		//game crashes here because of something to do with the craftingmanager
+		//disabled code for testing
+		//craftResult.setInventorySlotContents(0, DorfAnvilCraftingManager.getInstance().findMatchingRecipe(craftMatrix, worldObj));
 	}
 	
 	

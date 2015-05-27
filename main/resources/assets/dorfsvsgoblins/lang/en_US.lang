@@ -16,7 +16,6 @@ tile.dorfsvsgoblins.blockDorfAltar.name=Altar of Armok
 tile.dorfsvsgoblins.blockDorfAnvil.name=Anvil
 tile.dorfsvsgoblins.blockBarrel.name=Barrel
 #
-#
 # Items
 item.dorfsvsgoblins.itemMugBeer.name=Mug of Ale
 item.dorfsvsgoblins.itemMug.name=Empty Mug
@@ -44,6 +43,30 @@ item.dorfsvsgoblins.itemIronPickHead.name=Iron Pickaxe Head
 item.dorfsvsgoblins.itemIronShovelHead.name=Iron Shovel Head
 item.dorfsvsgoblins.itemIronAxeHead.name=Iron Axe Head
 item.dorfsvsgoblins.itemIronHoeHead.name=Iron Hoe Blade
+#
+item.dorfsvsgoblins.itemMithrilSwordHead.name=Mithril Sword Blade
+item.dorfsvsgoblins.itemMithrilSwordHilt.name=Mithril Sword Guard
+item.dorfsvsgoblins.itemMithrilPickHead.name=Mithril Pickaxe Head
+item.dorfsvsgoblins.itemMithrilShovelHead.name=Mithril Shovel Head
+item.dorfsvsgoblins.itemMithrilAxeHead.name=Mithril Axe Head
+item.dorfsvsgoblins.itemMithrilHoeHead.name=Mithril Hoe Blade
+#
+item.dorfsvsgoblins.itemFlintKnife.name=Flint Knife
+item.dorfsvsgoblins.itemFlintPickaxe.name=Flint Pickaxe
+item.dorfsvsgoblins.itemFlintAxe.name=Flint Axe
+#
+item.dorfsvsgoblins.itemSwordMithril.name=Mithril Sword
+item.dorfsvsgoblins.itemPickaxeMithril.name=Mithril Pickaxe
+item.dorfsvsgoblins.itemShovelMithril.name=Mithril Shovel
+item.dorfsvsgoblins.itemAxeMithril.name=Mithril Axe 
+item.dorfsvsgoblins.itemHoeMithril.name=Mithril Hoe
+#
+item.dorfsvsgoblins.itemPlankOak.name=Oak Plank
+item.dorfsvsgoblins.itemPlankPine.name=Spruce Plank
+item.dorfsvsgoblins.itemPlankBirch.name=Birch Plank
+item.dorfsvsgoblins.itemPlankJungle.name=Jungle Plank
+item.dorfsvsgoblins.itemPlankAcacia.name=Acacia Plank
+item.dorfsvsgoblins.itemPlankDarkOak.name=Dark Oak Plank
 #
 item.dorfsvsgoblins.itemCrownSkull.name=Kingly Skull
 item.dorfsvsgoblins.itemDorfSkull.name=Dwarf Skull

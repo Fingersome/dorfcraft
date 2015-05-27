@@ -44,20 +44,27 @@ public class ItemList
 	public static Item itemMithrilShovelHead;
 	public static Item itemMithrilAxeHead;
 	public static Item itemMithrilHoeHead;
-
+	
 	public static Item itemFlintKnife;
 	public static Item itemFlintPickaxe;
 	public static Item itemFlintAxe;
 	
 	public static Item itemSwordMithril;
 	public static Item itemPickaxeMithril;
-	public static Item itemShoveMithril;
+	public static Item itemShovelMithril;
 	public static Item itemAxeMithril;
 	public static Item itemHoeMithril;
 
+	public static Item itemPlankOak;
+	public static Item itemPlankPine;
+	public static Item itemPlankBirch;
+	public static Item itemPlankJungle;
+	public static Item itemPlankAcacia;
+	public static Item itemPlankDarkOak;
+	
 	public static Item itemSalt;
 	public static Item itemHide;
-	public static Item itemCuredHide;
+	public static Item itemHideCured;
 	public static Item itemPlateLeather;
 	public static Item itemStrips;
 	
@@ -121,14 +128,41 @@ public class ItemList
 			itemIronShovelHead 	= new ItemIronShovelHead();	
 			itemIronAxeHead 	= new ItemIronAxeHead();	
 			itemIronHoeHead 	= new ItemIronHoeHead();	
-			/*
+		
 			itemMithrilSwordHead 	= new ItemMithrilSwordHead();	
 			itemMithrilSwordHilt 	= new ItemMithrilSwordHilt();	
 			itemMithrilPickHead 	= new ItemMithrilPickHead();	
 			itemMithrilShovelHead 	= new ItemMithrilShovelHead();	
 			itemMithrilAxeHead 		= new ItemMithrilAxeHead();	
 			itemMithrilHoeHead 		= new ItemMithrilHoeHead();	
-			*/
+			
+			itemFlintKnife 			= new ItemFlintKnife();
+			itemFlintPickaxe 		= new ItemFlintPickaxe();
+			itemFlintAxe 			= new ItemFlintAxe();
+			
+			itemSwordMithril 		= new ItemSwordMithril();
+			itemPickaxeMithril 		= new ItemPickaxeMithril();
+			itemShovelMithril 		= new ItemShovelMithril();
+			itemAxeMithril 			= new ItemAxeMithril();
+			itemHoeMithril 			= new ItemHoeMithril();
+
+			itemPlankOak			= new ItemPlankOak();
+			itemPlankPine			= new ItemPlankPine();
+			itemPlankBirch			= new ItemPlankBirch();
+			itemPlankJungle			= new ItemPlankJungle();
+			itemPlankAcacia			= new ItemPlankAcacia();
+			itemPlankDarkOak		= new ItemPlankDarkOak();
+
+			itemSalt				= new ItemSalt();
+			itemHide				= new ItemHide();
+			itemHideCured			= new ItemHideCured();
+			itemPlateLeather		= new ItemPlateLeather();
+			itemStrips				= new ItemStrips();
+
+			itemChain				= new ItemChain();
+			itemPlateIron			= new ItemPlateIron();
+			itemPlateMithril		= new ItemPlateMithril();
+			
 			itemDorfSkull = new ItemDorfSkull();
 			
 		}

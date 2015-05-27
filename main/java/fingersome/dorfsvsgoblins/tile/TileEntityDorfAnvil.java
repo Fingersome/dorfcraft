@@ -8,15 +8,16 @@ import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 
 public class TileEntityDorfAnvil extends TileEntity
-{
-    
-    
+{  
     /** The ItemStacks that hold the items currently being used in the anvil */
     private ItemStack[] anvilItemStacks = new ItemStack[10];
     
@@ -28,12 +29,12 @@ public class TileEntityDorfAnvil extends TileEntity
     /*
      * The number of hits it takes to finish the current item being crafted
      */
-    private static int totalCraftHits;
+    private static int totalCraftHits = 28;
 
     /*
      * The number of times that the current item recipe has been hit
      */
-    private static int craftProgress;
+    private static int craftProgress = 1;
     
     public static int progressForDisplay = 28 / totalCraftHits * craftProgress;
 
@@ -133,10 +134,11 @@ public class TileEntityDorfAnvil extends TileEntity
     }
 
     
-    public void readFromNBT(NBTTagCompound compound)
+    public void readFromNBT(NBTTagCompound tagCompound)
     {
-        super.readFromNBT(compound);
-        NBTTagList nbttaglist = compound.getTagList("Items", 10);
+        super.readFromNBT(tagCompound);  
+        
+        NBTTagList nbttaglist = tagCompound.getTagList("Items", 10);
         this.anvilItemStacks = new ItemStack[this.getSizeInventory()];
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i)
@@ -150,18 +152,19 @@ public class TileEntityDorfAnvil extends TileEntity
             }
         }
 
-        this.coolDownTime = compound.getShort("BurnTime");
-        this.craftProgress = compound.getShort("CookTime");
-        this.totalCraftHits = compound.getShort("CookTimeTotal");
+        this.coolDownTime = tagCompound.getShort("BurnTime");
+        this.craftProgress = tagCompound.getShort("CookTime");
+        this.totalCraftHits = tagCompound.getShort("CookTimeTotal");
         
     }
 
-    public void writeToNBT(NBTTagCompound compound)
+    public void writeToNBT(NBTTagCompound tagCompound)
     {
-        super.writeToNBT(compound);
-        compound.setShort("BurnTime", (short)this.coolDownTime);
-        compound.setShort("CookTime", (short)this.craftProgress);
-        compound.setShort("CookTimeTotal", (short)this.totalCraftHits);
+        super.writeToNBT(tagCompound);
+
+        tagCompound.setShort("BurnTime", (short)this.coolDownTime);
+        tagCompound.setShort("CookTime", (short)this.craftProgress);
+        tagCompound.setShort("CookTimeTotal", (short)this.totalCraftHits);
         NBTTagList nbttaglist = new NBTTagList();
 
         for (int i = 0; i < this.anvilItemStacks.length; ++i)
@@ -175,9 +178,24 @@ public class TileEntityDorfAnvil extends TileEntity
             }
         }
         
-        compound.setTag("Items", nbttaglist);
+        tagCompound.setTag("Items", nbttaglist);
     }
 
+    @Override
+    public Packet getDescriptionPacket() 
+    {
+        NBTTagCompound tag = new NBTTagCompound();
+        writeToNBT(tag);
+        return new S35PacketUpdateTileEntity(pos, 0, tag);
+    }
+    
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) 
+    {
+        readFromNBT(pkt.getNbtCompound());
+    }
+
+    
     /**
      * Returns the maximum stack size for a inventory slot. Seems to always be 64, possibly will be extended. *Isn't
      * this more of a set than a get?*

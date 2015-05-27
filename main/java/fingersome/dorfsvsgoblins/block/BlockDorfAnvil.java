@@ -33,6 +33,7 @@ public class BlockDorfAnvil extends Block
 {
     public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
     private final String name = "blockDorfAnvil";
+    public int hitCounter = 0;
         
     public BlockDorfAnvil()
     {
@@ -66,13 +67,14 @@ public class BlockDorfAnvil extends Block
     	if(world.isRemote && player.getHeldItem() == null)
     	{
 			player.openGui(ModInfo.MODID, DorfsVsGoblins.guiIDDorfAnvil, world, (int)player.posX, (int)player.posY, (int)player.posZ);
+    		world.markBlockForUpdate(pos);
 			System.out.println("anvil clicked");
 		}
     	else if(!world.isRemote &&
     			player.getHeldItem().getItem() == ItemList.itemHammerStone 	|| 
 				player.getHeldItem().getItem() == ItemList.itemHammerIron 	||
 				player.getHeldItem().getItem() == ItemList.itemHammerMithril)
-		{
+		{	
     		world.playSoundAtEntity(player, "minecraft:random.anvil_land", 1.0F, 1.0F);
 		}
 			return true;

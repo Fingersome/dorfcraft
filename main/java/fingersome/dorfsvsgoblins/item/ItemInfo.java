@@ -37,7 +37,7 @@ public class ItemInfo
 	public static final String ITEM_MITHRIL_PICK_HEAD_UNLOCALIZED 		= "itemMithrilPickHead";
 	public static final String ITEM_MITHRIL_SHOVEL_HEAD_UNLOCALIZED 	= "itemMithrilShovelHead";
 	public static final String ITEM_MITHRIL_AXE_HEAD_UNLOCALIZED 		= "itemMithrilAxeHead";
-	public static final String ITEM_MITHRIL_HOE_HEAD_UNLOCALIZED 		= "itemMithrilhoeHead";
+	public static final String ITEM_MITHRIL_HOE_HEAD_UNLOCALIZED 		= "itemMithrilHoeHead";
 
 	public static final String ITEM_FLINT_KNIFE_UNLOCALIZED 		= "itemFlintKnife";
 	public static final String ITEM_FLINT_PICK_UNLOCALIZED 			= "itemFlintPickaxe";
@@ -54,6 +54,13 @@ public class ItemInfo
 	public static final String ITEM_HIDE_CURED_UNLOCALIZED 			= "itemHideCured";
 	public static final String ITEM_PLATE_LEATHER_UNLOCALIZED 		= "itemPlateLeather";
 	public static final String ITEM_STRIPS_UNLOCALIZED 				= "itemStrips";
+
+	public static final String ITEM_PLANK_OAK_UNLOCALIZED 			= "itemPlankOak";
+	public static final String ITEM_PLANK_PINE_UNLOCALIZED 			= "itemPlankPine";
+	public static final String ITEM_PLANK_BIRCH_UNLOCALIZED 		= "itemPlankBirch";
+	public static final String ITEM_PLANK_JUNGLE_UNLOCALIZED 		= "itemPlankJungle";
+	public static final String ITEM_PLANK_ACACIA_UNLOCALIZED 		= "itemPlankAcacia";
+	public static final String ITEM_PLANK_DARK_OAK_UNLOCALIZED 		= "itemPlankDarkOak";
 	
 	public static final String ITEM_CHAIN_UNLOCALIZED 				= "itemChain";
 	public static final String ITEM_PLATE_IRON_UNLOCALIZED 			= "itemPlateIron";

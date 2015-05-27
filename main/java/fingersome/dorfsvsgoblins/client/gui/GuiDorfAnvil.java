@@ -54,8 +54,9 @@ public class GuiDorfAnvil extends GuiContainer
 	    int l = (this.height - this.ySize) / 2;
 		
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
- 
-		drawTexturedModalRect(guiLeft + 88, guiTop + 30, 176, 0, 14, 28);
+		
+		int progressBarWidth = TileEntityDorfAnvil.getProgressForDisplay();
+		drawTexturedModalRect(guiLeft + 88, guiTop + 30, 176, 0, 10, 20);
 	}
 	
 }

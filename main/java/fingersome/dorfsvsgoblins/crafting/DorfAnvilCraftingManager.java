@@ -28,7 +28,6 @@ public class DorfAnvilCraftingManager
     private static final DorfAnvilCraftingManager instance = new DorfAnvilCraftingManager();
     /** A list of all the recipes added */
     private List recipes = Lists.newArrayList();
-    private static final String __OBFID = "CL_00000090";
 
     /**
      * Returns the static instance of this class
@@ -43,11 +42,30 @@ public class DorfAnvilCraftingManager
     {
     	
     	recipes = new ArrayList();
-    	this.addRecipe(new ItemStack(ItemList.itemIronPickHead, 1), new Object[] {	"   ", 
-    																				"III",
+    	this.addRecipe(new ItemStack(ItemList.itemIronSwordHead, 1), new Object[] {	" I ",
+																					" I ",
+																					" I ", 
+																					'I', Items.iron_ingot});
+
+    	this.addRecipe(new ItemStack(ItemList.itemIronSwordHead, 1), new Object[] {	"   ",
+																					"III",
+																					"   ", 
+																					'I', Items.iron_ingot});
+
+    	this.addRecipe(new ItemStack(ItemList.itemIronPickHead, 1), new Object[] {	" I ", 
+    																				"I I",
     																				"   ", 
     																				'I', Items.iron_ingot});
     	
+    	this.addRecipe(new ItemStack(ItemList.itemIronShovelHead, 1), new Object[] {" I ",
+																					"	",
+																					"   ", 
+																					'I', Items.iron_ingot});
+
+    	this.addRecipe(new ItemStack(ItemList.itemIronAxeHead, 1), new Object[] {"II ",
+																				 "I	 ",
+																				 "   ", 
+																				 'I', Items.iron_ingot});
     	
     	Collections.sort(this.recipes, new DorfAnvilRecipeSorter(this));
     }

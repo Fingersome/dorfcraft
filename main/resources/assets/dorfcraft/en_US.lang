@@ -1,0 +1,32 @@
+# Spooky Items
+item.itemMask.name=Necromancer's Mask
+item.itemRod.name=Necromancer's Rod
+item.itemGrimoire.name=Tattered Grimoire
+#
+# Kingly Items
+item.itemCrown.name=King's Crown
+item.itemScepter.name=King's Scepter
+item.itemTome.name=Tome of Lore
+#
+# Dorfy Items
+item.itemHammer.name=Hammer
+item.itemTrowel.name=Trowel
+item.itemChisel.name=Chisel
+item.itemSaw.name=Saw
+item.itemMortar.name=Mortar
+item.itemFlagon.name=Empty Flagon
+item.itemFlagonAle.name=Flagon of Ale
+#
+# Crafty Items
+item.itemDustGood.name=Crackling Dust
+item.itemDustEvil.name=Vile Dust
+#
+#
+#
+# Blocks
+# tile.blockAltar.name=Altar of Bones
+#
+#
+#
+# Creative Tabs
+itemGroup.dorfcraft=Dorfcraft

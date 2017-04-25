@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=south": 	{ "model": "dorfsvsgoblins:blockDorfAnvil"			},
-        "facing=west": 	{ "model": "dorfsvsgoblins:blockDorfAnvil", "y": 90 	},
-        "facing=north": { "model": "dorfsvsgoblins:blockDorfAnvil", "y": 180 	},
-        "facing=east": 	{ "model": "dorfsvsgoblins:blockDorfAnvil", "y": 270 	}
-    }
-}

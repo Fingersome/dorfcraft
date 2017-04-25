@@ -1,8 +1,8 @@
 [
 {
-  "modid": "dorfsvsgoblins",
-  "name": "Dwarves vs Goblins",
-  "description": "A team based pvp mod",
+  "modid": "dorfcraft",
+  "name": "Become a Dorf!",
+  "description": "A mod for team-based PvP servers!",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

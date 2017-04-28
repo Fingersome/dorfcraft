@@ -11,9 +11,9 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemHammer extends Item {
+public class ItemChisel extends Item {
 
-    public ItemHammer(String name) {
+    public ItemChisel(String name) {
         setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tab);
     }   
@@ -27,7 +27,7 @@ public class ItemHammer extends Item {
     //Changes name colour in tooltip
     @Override
     public EnumRarity getRarity(ItemStack stack) {
-        return EnumRarity.RARE;
+        return EnumRarity.COMMON;
     }
 
     //Displays enchantment glow
@@ -38,6 +38,6 @@ public class ItemHammer extends Item {
     
     public static void registerRender(Item item) {
     	
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ItemInfo.ITEM_HAMMER_UNLOCALIZED, "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ItemInfo.ITEM_CHISEL_UNLOCALIZED, "inventory"));
     }
 }

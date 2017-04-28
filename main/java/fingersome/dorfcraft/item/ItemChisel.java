@@ -16,6 +16,7 @@ public class ItemChisel extends Item {
     public ItemChisel(String name) {
         setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tab);
+        setMaxStackSize(1);
     }   
 
     @Override

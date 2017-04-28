@@ -12,7 +12,7 @@ import net.minecraft.item.crafting.IRecipe;
 
 public class RecipeManager {
 
-	//REMOVE VANILLA SMELTING RECIPES   	
+	//REMOVE VANILLA CRAFTING RECIPES
 	public static void removeVanillaRecipes() {
 
 		List<IRecipe> recipes = CraftingManager.getInstance().getRecipeList();
@@ -22,6 +22,9 @@ public class RecipeManager {
 		     	{	ItemStack stack = itemstoremove.next().getRecipeOutput();
 		     	
 		     	/**TOOL RECIPES**/
+		 		if (stack != null && stack.getItem()		== Items.SHEARS)
+		 		itemstoremove.remove();
+		 		
 		 		if (stack != null && stack.getItem() 		== Items.WOODEN_SWORD)
 		 		itemstoremove.remove();
 		 		else if (stack != null && stack.getItem()	== Items.WOODEN_PICKAXE)
@@ -54,9 +57,6 @@ public class RecipeManager {
 		 		itemstoremove.remove();
 		 		else if (stack != null && stack.getItem()	== Items.GOLDEN_HOE)
 		 		itemstoremove.remove();
-
-		 		else if (stack != null && stack.getItem()	== Items.SHEARS)
-		 		itemstoremove.remove();
 		 		
 		 		if (stack != null && stack.getItem() 		== Items.DIAMOND_SWORD)
 		 		itemstoremove.remove();
@@ -69,6 +69,8 @@ public class RecipeManager {
 		 		else if (stack != null && stack.getItem()	== Items.DIAMOND_HOE)
 		 		itemstoremove.remove();
 
+		 		/**ARMOR RECIPES**/
+		 		
 		 		if (stack != null && stack.getItem() 		== Items.LEATHER_BOOTS)
 		 		itemstoremove.remove();
 		 		else if (stack != null && stack.getItem()	== Items.LEATHER_LEGGINGS)
@@ -78,7 +80,6 @@ public class RecipeManager {
 		 		else if (stack != null && stack.getItem()	== Items.LEATHER_HELMET)
 		 		itemstoremove.remove();
 		 		
-		 		/**ARMOR RECIPES**/
 		 		if (stack != null && stack.getItem() 		== Items.CHAINMAIL_BOOTS)
 		 		itemstoremove.remove();
 		 		else if (stack != null && stack.getItem()	== Items.CHAINMAIL_LEGGINGS)
@@ -114,18 +115,28 @@ public class RecipeManager {
 		 		itemstoremove.remove();
 		 		else if (stack != null && stack.getItem()	== Items.DIAMOND_HELMET)
 		 		itemstoremove.remove();
-		
+
+		     	/**MISC RECIPES**/
+		 		if (stack != null && stack.getItem()		== Items.STICK)
+		 		itemstoremove.remove();
+		 		
+		 		
 		 		/**BLOCK RECIPES**/
 		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.PLANKS))
-		 	 	itemstoremove.remove();
+		 			itemstoremove.remove();
 		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.CRAFTING_TABLE))
-		 	 	itemstoremove.remove();
+			 	 	itemstoremove.remove();
+		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.CHEST))
+			 	 	itemstoremove.remove();
+		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.FURNACE))
+			 	 	itemstoremove.remove();
 		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.STONEBRICK))
-		 			
-		 			
-		 			
-		 			
-		 	 	itemstoremove.remove();
+		 			itemstoremove.remove();
+		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.TORCH))
+		 			itemstoremove.remove();
+		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.REDSTONE_TORCH))
+		 			itemstoremove.remove();
+	 			
 		 		
 		     	}
  		}

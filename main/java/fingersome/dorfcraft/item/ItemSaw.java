@@ -16,6 +16,7 @@ public class ItemSaw extends Item {
     public ItemSaw(String name) {
         setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tab);
+        setMaxStackSize(1);
     }   
 
     @Override

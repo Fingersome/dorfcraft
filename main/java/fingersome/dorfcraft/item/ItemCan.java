@@ -16,6 +16,7 @@ public class ItemCan extends Item {
     public ItemCan(String name) {
         setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tab);
+        setMaxStackSize(1);
     }   
 
     @Override

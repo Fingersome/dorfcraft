@@ -25,7 +25,7 @@ public class ItemMaskNecro extends ItemBaublesHead {
 
 	@Override
 	    public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-			tooltip.add("Fetid energies pour from its surface...");
+			tooltip.add("Foul energies pour from its surface...");
 	        super.addInformation(stack, playerIn, tooltip, advanced);
 	    }
 

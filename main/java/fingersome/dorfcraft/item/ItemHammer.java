@@ -16,6 +16,7 @@ public class ItemHammer extends Item {
     public ItemHammer(String name) {
         setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tab);
+        setMaxStackSize(1);
     }   
 
     @Override
@@ -27,7 +28,7 @@ public class ItemHammer extends Item {
     //Changes name colour in tooltip
     @Override
     public EnumRarity getRarity(ItemStack stack) {
-        return EnumRarity.RARE;
+        return EnumRarity.UNCOMMON;
     }
 
     //Displays enchantment glow

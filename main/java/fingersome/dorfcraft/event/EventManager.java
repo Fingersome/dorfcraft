@@ -12,6 +12,7 @@ import net.minecraft.init.Items;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.GameType;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -19,18 +20,23 @@ import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBloc
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class EventManager {
     
-	//Test event to see if the Event Manager works
+	//on server started event:
+	//create teams
+	//create roles
+	//create classes
+		
+	//Event triggered when a player dies, putting them into spectator mode if they are a dorf and it isn't time for the zombies to respawn
 	@SubscribeEvent
-	public void onItemTossEvent(ItemTossEvent event) {
-		Minecraft.getMinecraft().player.sendChatMessage("oops, looks like I dropped something...");
+	public void onPlayerRespawnEvent(PlayerEvent.PlayerRespawnEvent event) {
+		event.player.setGameType(GameType.SPECTATOR);
 	}
-
-	
+		
 	//Events triggered by right clicking on a block
 	@SubscribeEvent
 	public void onPlayerRightClickBlock(RightClickBlock event) {
@@ -43,6 +49,7 @@ public class EventManager {
 		if (state.getBlock() == Blocks.LOG && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemSaw) {
 			if (!world.isRemote) {
 			Minecraft.getMinecraft().player.sendChatMessage("spawn planks");
+			
 			}
 		}	
 

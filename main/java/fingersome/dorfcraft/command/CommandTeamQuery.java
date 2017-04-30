@@ -54,26 +54,26 @@ public class CommandTeamQuery implements ICommand {
 		 World world = server.getEntityWorld();	 
 		 EntityPlayer player = Minecraft.getMinecraft().player;
 		 ITeam iTeam = player.getCapability(TeamProvider.PLAYER_TEAM, null);
-		 int fetchTeam = (int) iTeam.getTeam();
+		 int teamID = iTeam.getTeam();
+		 String label = iTeam.getTeamName();
 		 
-		 if (fetchTeam == 0) {
-			 
-			 String message = String.format("You are a Ghost!");
-			 player.sendMessage(new TextComponentString((TextFormatting.GRAY) + message));
+		 if (teamID == 0) {
+			 String message = String.format("You are a ");
+			 player.sendMessage(new TextComponentString(message + (TextFormatting.GRAY) + label + "!"));
 		
 		 }	 
 
-		 else if (fetchTeam == 1) {
+		 else if (teamID == 1) {
 			 
-			 String message = String.format("You are a Dorf!");
-			 player.sendMessage(new TextComponentString((TextFormatting.BLUE) + message));
+			 String message = String.format("You are a ");
+			 player.sendMessage(new TextComponentString(message + (TextFormatting.AQUA) + label + "!"));
 		
 		 }
 		 
-		 else if (fetchTeam == 2) {
+		 else if (teamID == 2) {
 			 
-			 String message = String.format("You are a Zombie!");
-			 player.sendMessage(new TextComponentString((TextFormatting.GREEN) + message));
+			 String message = String.format("You are a ");
+			 player.sendMessage(new TextComponentString(message + (TextFormatting.GREEN) + label + "!"));
 		
 		 }
 	}

@@ -35,7 +35,7 @@ public class TeamStorage implements IStorage<ITeam>
 
  {
 
- instance.set(((NBTPrimitive) nbt).getInt());
+ instance.setTeam(((NBTPrimitive) nbt).getInt());
 
  }
 

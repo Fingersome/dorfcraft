@@ -33,9 +33,9 @@ public class GameEventHandler
 		 
 		 if (teamID == 0) {
 
-			 iTeam.set(1);
+			 iTeam.setTeam(1);
 			 String message = String.format("Looks like you've become a " );
-			 player.sendMessage(new TextComponentString(message + (TextFormatting.GRAY) +  label));
+			 player.sendMessage(new TextComponentString(message + (TextFormatting.GRAY) +  label + "!"));
 			 player.setGameType(GameType.SPECTATOR);
 			 event.setCanceled(true);
 		
@@ -43,9 +43,9 @@ public class GameEventHandler
 		 
 		 else if (teamID == 1) {
 			 
-			 iTeam.set(2);
+			 iTeam.setTeam(2);
 			 String message = String.format("Looks like you've become a ");
-			 player.sendMessage(new TextComponentString(message + (TextFormatting.AQUA) +  label));
+			 player.sendMessage(new TextComponentString(message + (TextFormatting.AQUA) +  label + "!"));
 			 player.setGameType(GameType.SURVIVAL);
 			 event.setCanceled(true);
 		
@@ -53,9 +53,9 @@ public class GameEventHandler
 		 
 		 else { 
 
-			 iTeam.set(0);
+			 iTeam.setTeam(0);
 			 String message = String.format("Looks like you've become a ");
-			 player.sendMessage(new TextComponentString(message + (TextFormatting.GREEN) +  label));
+			 player.sendMessage(new TextComponentString(message + (TextFormatting.GREEN) +  label + "!"));
 			 player.setGameType(GameType.SPECTATOR);
 			 event.setCanceled(true);
 	 	}
@@ -75,7 +75,7 @@ public class GameEventHandler
 		EntityPlayer player = event.getEntityPlayer();
 		ITeam iTeam = player.getCapability(TeamProvider.PLAYER_TEAM, null);
 		ITeam oldITeam = event.getOriginal().getCapability(TeamProvider.PLAYER_TEAM, null);
-		iTeam.set((int) oldITeam.getTeam());
+		iTeam.setTeam((int) oldITeam.getTeam());
 
 	}
 

@@ -10,7 +10,7 @@ public interface ITeam
 
 {
 
-	 public void set(int team);
+	 public void setTeam(int team);
 	
 	 public int getTeam();
 	

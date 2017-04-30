@@ -11,7 +11,7 @@ public class Team implements ITeam {
 	public int teamID = 0; 
 	
 		@Override
-		public void set(int team) {
+		public void setTeam(int team) {
 			this.teamID = team;
 		}
 

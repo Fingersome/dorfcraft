@@ -1,5 +1,6 @@
 package fingersome.dorfcraft;
 
+import fingersome.dorfcraft.command.CheckMoonPhase;
 import fingersome.dorfcraft.command.CommandTest;
 import fingersome.dorfcraft.config.ConfigManager;
 import fingersome.dorfcraft.event.EventManager;
@@ -93,7 +94,8 @@ public class Dorfcraft
 	 {
 	     // register server commands
 
-	 event.registerServerCommand(new CommandTest());
+		 event.registerServerCommand(new CheckMoonPhase());
+		 event.registerServerCommand(new CommandTest());
 	 }
 	
 

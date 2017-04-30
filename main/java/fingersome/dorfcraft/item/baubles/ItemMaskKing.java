@@ -3,7 +3,9 @@ package fingersome.dorfcraft.item.baubles;
 import java.util.List;
 
 import baubles.api.BaubleType;
+import baubles.api.BaublesApi;
 import baubles.api.IBauble;
+import baubles.api.cap.IBaublesItemHandler;
 import fingersome.dorfcraft.Dorfcraft;
 import fingersome.dorfcraft.ModInfo;
 import fingersome.dorfcraft.item.ItemInfo;
@@ -12,10 +14,15 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.world.World;
 
 public class ItemMaskKing extends ItemBaublesHead {
 
@@ -27,48 +34,55 @@ public class ItemMaskKing extends ItemBaublesHead {
 	}
 
 	 	@Override
-	    public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
+	    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
 	        tooltip.add("A glittering crown, fit for a king.");
-	        super.addInformation(stack, playerIn, tooltip, advanced);
+	        super.addInformation(stack, player, tooltip, advanced);
 	    }
-
-	    //Changes name colour in tooltip
-	    @Override
-	    public EnumRarity getRarity(ItemStack stack) {
-	        return EnumRarity.EPIC;
-	    }
-
-	    //Displays enchantment glow
-	    @Override
-	    public boolean hasEffect(ItemStack stack) {
-	        return false;
-	    }
-
-	    //Decides what the bauble does when equipped / loaded
-	    @Override
-	    public void onEquippedOrLoadedIntoWorld(ItemStack stack, EntityLivingBase player) {
-			
-		}
-	    
-	    //Decided what the bauble does when the player ticks whilst wearing it
+ 
 		@Override
-		public void onWornTick(ItemStack stack, EntityLivingBase player) {
-			super.onWornTick(stack, player);
-
-			if(player instanceof EntityPlayer && !player.world.isRemote) {
-				if(	player.getActivePotionEffect(MobEffects.RESISTANCE) != null)
-					player.removePotionEffect(MobEffects.RESISTANCE);
-
-					player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 22, 0, true, false));
-				}
+		public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+			if(!world.isRemote) { 
+				IBaublesItemHandler baubles = BaublesApi.getBaublesHandler(player);
+				for(int i = 0; i < baubles.getSlots(); i++) 
+					if((baubles.getStackInSlot(i) == null || baubles.getStackInSlot(i).isEmpty()) && baubles.isItemValidForSlot(i, player.getHeldItem(hand), player)) {
+						baubles.setStackInSlot(i, player.getHeldItem(hand).copy());
+						if(!player.capabilities.isCreativeMode){
+							player.inventory.setInventorySlotContents(player.inventory.currentItem, ItemStack.EMPTY);
+						}
+						onEquipped(player.getHeldItem(hand), player);
+						break;
+					}
+			}
+			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
 		}
 
 		@Override
-		public void onUnequipped(ItemStack stack, EntityLivingBase player) {
-			PotionEffect effect = player.getActivePotionEffect(MobEffects.RESISTANCE);
-			if(effect != null && effect.getAmplifier() == 1)
-				player.removePotionEffect(MobEffects.RESISTANCE);
+		public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
+			if (itemstack.getItemDamage()== 0 && player.ticksExisted%39==0) {
+				player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,40,0,true,true));
+			}
 		}
+
+		@Override
+		public boolean hasEffect(ItemStack stack) {
+			return true;
+		}
+
+		@Override
+		public EnumRarity getRarity(ItemStack stack) {
+			return EnumRarity.EPIC;
+		}
+
+		@Override
+		public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
+			player.playSound(SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, .75F, 1.9f);
+		}
+
+		@Override
+		public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
+			player.playSound(SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, .75F, 2f);
+		}
+
 	    
 		public static void registerRender(Item item) {
 

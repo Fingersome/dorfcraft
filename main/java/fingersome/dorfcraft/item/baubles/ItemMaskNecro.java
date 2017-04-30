@@ -3,16 +3,26 @@ package fingersome.dorfcraft.item.baubles;
 import java.util.List;
 
 import baubles.api.BaubleType;
+import baubles.api.BaublesApi;
 import baubles.api.IBauble;
+import baubles.api.cap.IBaublesItemHandler;
 import fingersome.dorfcraft.Dorfcraft;
 import fingersome.dorfcraft.ModInfo;
 import fingersome.dorfcraft.item.ItemInfo;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.world.World;
 
 public class ItemMaskNecro extends ItemBaublesHead {
 
@@ -20,27 +30,62 @@ public class ItemMaskNecro extends ItemBaublesHead {
 		super(name, addToTab);
         setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tab);
-	    
+        setMaxStackSize(1);
 	}
 
-	@Override
-	    public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-			tooltip.add("Foul energies pour from its surface...");
-	        super.addInformation(stack, playerIn, tooltip, advanced);
+	 	@Override
+	    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
+	        tooltip.add("Foul energies pour from its surface...");
+	        super.addInformation(stack, player, tooltip, advanced);
 	    }
+ 
+		@Override
+		public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
+			if(!world.isRemote) { 
+				IBaublesItemHandler baubles = BaublesApi.getBaublesHandler(player);
+				for(int i = 0; i < baubles.getSlots(); i++) 
+					if((baubles.getStackInSlot(i) == null || baubles.getStackInSlot(i).isEmpty()) && baubles.isItemValidForSlot(i, player.getHeldItem(hand), player)) {
+						baubles.setStackInSlot(i, player.getHeldItem(hand).copy());
+						if(!player.capabilities.isCreativeMode){
+							player.inventory.setInventorySlotContents(player.inventory.currentItem, ItemStack.EMPTY);
+						}
+						onEquipped(player.getHeldItem(hand), player);
+						break;
+					}
+			}
+			return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, player.getHeldItem(hand));
+		}
 
-	    //Changes name colour in tooltip
-	    @Override
-	    public EnumRarity getRarity(ItemStack stack) {
-	        return EnumRarity.EPIC;
-	    }
+		@Override
+		public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
+			if (itemstack.getItemDamage()== 0 && player.ticksExisted%39==0) {
+				player.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY,40,0,true,false));
+				player.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS,40,0,true,false));
+				player.addPotionEffect(new PotionEffect(MobEffects.HUNGER,40,3,true,false));
+			}
+		}
 
-	    //Displays enchantment glow
-	    @Override
-	    public boolean hasEffect(ItemStack stack) {
-	        return false;
-	    }
+		@Override
+		public boolean hasEffect(ItemStack stack) {
+			return true;
+		}
 
+		@Override
+		public EnumRarity getRarity(ItemStack stack) {
+			return EnumRarity.EPIC;
+		}
+
+		@Override
+		public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
+			player.playSound(SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, .75F, 1.9f);
+		}
+
+		@Override
+		public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
+			player.playSound(SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, .75F, 2f);
+		}
+
+	    
 		public static void registerRender(Item item) {
 
 	        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ItemInfo.ITEM_MASK_NECRO_UNLOCALIZED, "inventory"));		

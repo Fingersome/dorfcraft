@@ -33,13 +33,13 @@ public class CommandTest implements ICommand {
 
 	@Override
 	public String getName() {
-        return "commandtest"; 
+        return "test"; 
 	}
 
 	@Override
 	public String getUsage(ICommandSender sender) {
 
-        return "commandtest <text>"; 
+        return "commandtest"; 
 	}
 
 	@Override
@@ -47,62 +47,27 @@ public class CommandTest implements ICommand {
         return this.aliases;
 	}
 
+	
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		
-		int moonPhase = Minecraft.getMinecraft().world.getMoonPhase();
-		String phaseString;
-		String nightDay = "other";
-		
-		if (Minecraft.getMinecraft().world.getWorldTime() > 1200) {
-			nightDay = "night";
-		}
-		else if (Minecraft.getMinecraft().world.getWorldTime() < 1200) { 
-			nightDay = "day";
-		}
-
-			if (moonPhase == 0) {
-				phaseString = "Full Moon";
-				sender.sendMessage(new TextComponentString((TextFormatting.LIGHT_PURPLE) + "It is the " + nightDay + " of the " + phaseString + "."));
-			}
-			else if (moonPhase == 1) {
-				phaseString = " 5th ";
-				sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It is the"  + phaseString + nightDay + "."));
-			}
-			else if (moonPhase == 2) {
-				phaseString = " 6th ";
-				sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It is the"  + phaseString + nightDay + "."));
-			}
-			else if (moonPhase == 3) {
-				phaseString = " 7th ";
-				sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It is the"  + phaseString + nightDay + "."));
-			}
-			else if (moonPhase == 4) {
-				phaseString = "New Moon";
-				sender.sendMessage(new TextComponentString((TextFormatting.GOLD) + "It is the " + nightDay + " of the " + phaseString + "."));
-			}
-			else if (moonPhase == 5) {
-				phaseString = " 1st ";
-				sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It is the"  + phaseString + nightDay + "."));
-			}
-			else if (moonPhase == 6) {
-				phaseString = " 2nd ";
-				sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It is the"  + phaseString + nightDay + "."));
-			}
-			else if (moonPhase == 7) {
-				phaseString = " 3rd ";
-				sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It is the"  + phaseString + nightDay + "."));
-			}
-		
-		/*
-		World world = Minecraft.getMinecraft().world;
 		int moonCheck = 0;
+		World world = server.getEntityWorld();
 		long worldTime = world.getWorldTime();
-		if(world.getCurrentMoonPhaseFactor() > 0 && moonCheck == 0) {
-			worldTime ++;
+		
+		if(world.getMoonPhase() != 5) {
+			sender.sendMessage(new TextComponentString((TextFormatting.WHITE) + "Setting moon phase to 5."));
+			}
+		
+		else {
+			moonCheck = 1;
+			sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It's already the first night."));
 		}
-		else moonCheck = 1;
-		*/
+		
+		while(world.getMoonPhase() != 5 && moonCheck == 0) {
+			world.setWorldTime(worldTime++);
+		}
+		
 	}
 
 	@Override
@@ -120,6 +85,7 @@ public class CommandTest implements ICommand {
 	public boolean isUsernameIndex(String[] args, int index) {
 		return false;
 	}
+
 
 	
 }

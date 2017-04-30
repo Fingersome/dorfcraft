@@ -15,11 +15,11 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
-public class CheckMoonPhase implements ICommand {
+public class CommandCheckMoonPhase implements ICommand {
 
     ArrayList aliases = new ArrayList(); 
     
-    public CheckMoonPhase() 
+    public CommandCheckMoonPhase() 
     { 
         aliases.add("checkmoonphase"); 
         aliases.add("moonphase"); 

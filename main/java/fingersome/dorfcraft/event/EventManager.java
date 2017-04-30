@@ -12,8 +12,12 @@ import net.minecraft.init.Items;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.GameType;
 import net.minecraft.world.World;
+import net.minecraftforge.event.CommandEvent;
+import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
@@ -28,15 +32,29 @@ public class EventManager {
     
 	//on server started event:
 	//create teams
+	public String playerTeam = "ghost";
 	//create roles
 	//create classes
-		
-	//Event triggered when a player dies, putting them into spectator mode if they are a dorf and it isn't time for the zombies to respawn
-	@SubscribeEvent
-	public void onPlayerRespawnEvent(PlayerEvent.PlayerRespawnEvent event) {
+	
+	//Event triggered when a player logs in
+	@SubscribeEvent	
+	public void onPlayerJoinEvent(PlayerEvent.PlayerLoggedInEvent event) {
 		event.player.setGameType(GameType.SPECTATOR);
-	}
 		
+		if(playerTeam == "dorf") {
+			event.player.addSuffix(new TextComponentString((TextFormatting.AQUA) + " the " + playerTeam));
+		}
+		
+		if(playerTeam == "zombie") {
+			event.player.addSuffix(new TextComponentString((TextFormatting.GREEN) + " the " + playerTeam));
+		}
+
+		if(playerTeam == "ghost") {
+			event.player.addSuffix(new TextComponentString((TextFormatting.GRAY) + " the " + playerTeam));
+		}
+	}
+	
+
 	//Events triggered by right clicking on a block
 	@SubscribeEvent
 	public void onPlayerRightClickBlock(RightClickBlock event) {
@@ -46,12 +64,6 @@ public class EventManager {
 		EntityPlayer player = event.getEntityPlayer();
 
 		//Triggers when certain items are used on certain blocks
-		if (state.getBlock() == Blocks.LOG && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemSaw) {
-			if (!world.isRemote) {
-			Minecraft.getMinecraft().player.sendChatMessage("spawn planks");
-			
-			}
-		}	
 
 		if (state.getBlock() == Blocks.PLANKS && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemChisel) {
 			if (!world.isRemote) {

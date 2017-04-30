@@ -1,16 +1,16 @@
 package fingersome.dorfcraft;
 
-import fingersome.dorfcraft.command.CheckMoonPhase;
-import fingersome.dorfcraft.command.CommandTest;
+import fingersome.dorfcraft.command.CommandCheckMoonPhase;
+import fingersome.dorfcraft.command.CommandGameNew;
+import fingersome.dorfcraft.command.CommandTeamQuery;
 import fingersome.dorfcraft.config.ConfigManager;
+import fingersome.dorfcraft.entity.capability.CapabilityHandler;
 import fingersome.dorfcraft.event.EventManager;
-import fingersome.dorfcraft.event.GameManager;
+import fingersome.dorfcraft.event.GameEventHandler;
 import fingersome.dorfcraft.item.ItemList;
 import fingersome.dorfcraft.proxy.CommonProxy;
-import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
-import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -37,12 +37,13 @@ public class Dorfcraft
 
 	public static CreativeTabs tab = new CreativeTabs("dorfcraft") {
     	@Override
-    	public String getTabLabel(){
+    	public String getTabLabel() {
     		return "dorfcraft";
     	}
+    	
 		@Override
 		@SideOnly(Side.CLIENT)
-		public ItemStack getTabIconItem(){
+		public ItemStack getTabIconItem() {
 			return new ItemStack(ItemList.itemMaskKing,1);
 		}
 	};
@@ -52,15 +53,14 @@ public class Dorfcraft
 	 {    
 	     // DEBUG
 	     System.out.println("preInit()" + event.getModMetadata().name);
-
 			MinecraftForge.EVENT_BUS.register(new ConfigManager());
 			MinecraftForge.EVENT_BUS.register(new EventManager());
+	     	MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
+	     	MinecraftForge.EVENT_BUS.register(new GameEventHandler());
 		
 	    ConfigManager.init(event.getSuggestedConfigurationFile());
 	   
 	 	items.init();
-	 	//items.retextureVanillaItems();
-
 		proxy.preInit(event);
 	     
 	 }
@@ -73,8 +73,7 @@ public class Dorfcraft
 	     System.out.println("init()");
 	
 	 	proxy.init(event);
-	
-	         
+	  
 	 }
 	
 	 @EventHandler
@@ -94,10 +93,10 @@ public class Dorfcraft
 	 {
 	     // register server commands
 
-		 event.registerServerCommand(new CheckMoonPhase());
-		 event.registerServerCommand(new CommandTest());
+		 event.registerServerCommand(new CommandCheckMoonPhase());
+		 event.registerServerCommand(new CommandGameNew());
+		 event.registerServerCommand(new CommandTeamQuery());
+		 
 	 }
-	
-
-	
+		
 }

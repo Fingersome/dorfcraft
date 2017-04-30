@@ -3,26 +3,29 @@ package fingersome.dorfcraft.command;
 import java.util.ArrayList;
 import java.util.List;
 
+import fingersome.dorfcraft.event.GameEventHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.management.PlayerList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.world.GameType;
 import net.minecraft.world.World;
 
-public class CommandTest implements ICommand {
+public class CommandGameNew implements ICommand {
 
     ArrayList aliases = new ArrayList(); 
     
-    public CommandTest() 
+    public CommandGameNew() 
     { 
-        aliases.add("commandtest"); 
-        aliases.add("test"); 
+        aliases.add("gamenew"); 
+        aliases.add("game"); 
     } 
 
 	@Override
@@ -33,13 +36,13 @@ public class CommandTest implements ICommand {
 
 	@Override
 	public String getName() {
-        return "test"; 
+        return "gamenew"; 
 	}
 
 	@Override
 	public String getUsage(ICommandSender sender) {
 
-        return "commandtest"; 
+        return "gamenew"; 
 	}
 
 	@Override
@@ -50,24 +53,26 @@ public class CommandTest implements ICommand {
 	
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-		
-		int moonCheck = 0;
+
 		World world = server.getEntityWorld();
+		PlayerList players = server.getPlayerList();
+		EntityPlayer player = Minecraft.getMinecraft().player;
+		int moonCheck = 0;
 		long worldTime = world.getWorldTime();
-		
-		if(world.getMoonPhase() != 5) {
-			sender.sendMessage(new TextComponentString((TextFormatting.WHITE) + "Setting moon phase to 5."));
+			
+			if(world.getMoonPhase() != 5) {
+				sender.sendMessage(new TextComponentString((TextFormatting.WHITE) + "Let the games begin..."));
+				}
+			
+			else {
+				moonCheck = 1;
+				sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It's already the first night."));
 			}
-		
-		else {
-			moonCheck = 1;
-			sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It's already the first night."));
-		}
-		
-		while(world.getMoonPhase() != 5 && moonCheck == 0) {
-			world.setWorldTime(worldTime++);
-		}
-		
+			
+			while(world.getMoonPhase() != 5 && moonCheck == 0) {
+				world.setWorldTime(worldTime++);
+			}
+			
 	}
 
 	@Override

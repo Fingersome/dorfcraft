@@ -6,7 +6,7 @@ import fingersome.dorfcraft.command.CommandTeamQuery;
 import fingersome.dorfcraft.config.ConfigManager;
 import fingersome.dorfcraft.entity.capability.CapabilityHandler;
 import fingersome.dorfcraft.event.EventManager;
-import fingersome.dorfcraft.event.GameEventHandler;
+import fingersome.dorfcraft.event.GameManager;
 import fingersome.dorfcraft.item.ItemList;
 import fingersome.dorfcraft.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
@@ -56,7 +56,7 @@ public class Dorfcraft
 			MinecraftForge.EVENT_BUS.register(new ConfigManager());
 			MinecraftForge.EVENT_BUS.register(new EventManager());
 	     	MinecraftForge.EVENT_BUS.register(new CapabilityHandler());
-	     	MinecraftForge.EVENT_BUS.register(new GameEventHandler());
+	     	MinecraftForge.EVENT_BUS.register(new GameManager());
 		
 	    ConfigManager.init(event.getSuggestedConfigurationFile());
 	   

@@ -3,12 +3,17 @@ package fingersome.dorfcraft;
 import java.util.Iterator;
 import java.util.List;
 
+import fingersome.dorfcraft.item.ItemList;
+import net.minecraft.block.BlockPlanks;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 
 public class RecipeManager {
 
@@ -130,6 +135,8 @@ public class RecipeManager {
 			 	 	itemstoremove.remove();
 		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.FURNACE))
 			 	 	itemstoremove.remove();
+		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.PLANKS))
+		 			itemstoremove.remove();
 		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.STONEBRICK))
 		 			itemstoremove.remove();
 		 		if (stack != null && stack.getItem() ==Item.getItemFromBlock(Blocks.TORCH))
@@ -139,5 +146,7 @@ public class RecipeManager {
 	 			
 		 		
 		     	}
- 		}
+		     	
+ 		
+	}
 }

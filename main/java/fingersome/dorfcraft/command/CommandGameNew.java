@@ -3,7 +3,7 @@ package fingersome.dorfcraft.command;
 import java.util.ArrayList;
 import java.util.List;
 
-import fingersome.dorfcraft.event.GameEventHandler;
+import fingersome.dorfcraft.event.GameManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;

@@ -3,6 +3,7 @@ package fingersome.dorfcraft.item;
 import fingersome.dorfcraft.ModInfo;
 import fingersome.dorfcraft.item.baubles.ItemMaskKing;
 import fingersome.dorfcraft.item.baubles.ItemMaskNecro;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -21,6 +22,8 @@ public class ItemList
 	public static Item itemHammer;
 	public static Item itemMortar;
 	public static Item itemTome;
+	
+	public static Item itemPlankAccacia;
 
 	
 	    public static void init() {
@@ -35,6 +38,8 @@ public class ItemList
 	        itemHammer 	= new ItemHammer	(ItemInfo.ITEM_HAMMER_UNLOCALIZED);
 	        itemMortar	= new ItemMortar	(ItemInfo.ITEM_MORTAR_UNLOCALIZED);
 	        itemTome	= new ItemTome		(ItemInfo.ITEM_TOME_UNLOCALIZED);
+	        
+	        itemPlankAccacia	= new itemPlankAccacia		(ItemInfo.ITEM_TOME_UNLOCALIZED);
 
 	        registerItems();
 	    }

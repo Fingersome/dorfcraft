@@ -24,8 +24,6 @@ public class CommandGameNew implements ICommand {
     
     public CommandGameNew() 
     { 
-        aliases.add("gamenew"); 
-        aliases.add("game"); 
     } 
 
 	@Override
@@ -66,7 +64,7 @@ public class CommandGameNew implements ICommand {
 			
 			else {
 				moonCheck = 1;
-				sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "It's already the first night."));
+				sender.sendMessage(new TextComponentString((TextFormatting.GRAY) + "A game has already begun."));
 			}
 			
 			while(world.getMoonPhase() != 5 && moonCheck == 0) {

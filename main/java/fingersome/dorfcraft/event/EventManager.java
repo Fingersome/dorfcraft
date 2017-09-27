@@ -9,6 +9,7 @@ import net.minecraft.client.audio.SoundManager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
@@ -20,6 +21,7 @@ import net.minecraftforge.event.CommandEvent;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.LeftClickBlock;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent.RightClickBlock;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.eventhandler.Event.Result;
@@ -55,9 +57,10 @@ public class EventManager {
 	}
 	
 
-	//Events triggered by right clicking on a block
+	//Events triggered by left clicking on a block
 	@SubscribeEvent
-	public void onPlayerRightClickBlock(RightClickBlock event) {
+	public void onPlayerLeftClickBlock(LeftClickBlock event) {
+		
 		World world = event.getWorld();
 		BlockPos pos = event.getPos();
 		IBlockState state = world.getBlockState(pos);
@@ -65,59 +68,71 @@ public class EventManager {
 
 		//Triggers when certain items are used on certain blocks
 
-		if (state.getBlock() == Blocks.PLANKS && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemChisel) {
-			if (!world.isRemote) {
-			Minecraft.getMinecraft().player.sendChatMessage("setblock to chest");
-			}
-		}	
-		
-		if (state.getBlock() == Blocks.COBBLESTONE && event.getEntityPlayer().getHeldItemMainhand().getItem() ==  ItemList.itemChisel) {
-			if (!world.isRemote) {
-			Minecraft.getMinecraft().player.sendChatMessage("set block to furnace");
-			}
-		}		
 		
 		if (state.getBlock() == Blocks.IRON_BLOCK && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemHammer) {
-			//world.playSound(player, player.posX, player.posY, player.posZ, null, SoundCategory.PLAYERS, 0.5F, 1F);
-			if (!world.isRemote) {
-			Minecraft.getMinecraft().player.sendChatMessage("set block to anvil");
+			if (world.isRemote) {
+				event.getEntity().playSound(SoundEvents.BLOCK_ANVIL_PLACE, 1.0F, 1.0F);
+			}
+			else if(!world.isRemote) {
+				event.getWorld().setBlockState(event.getPos(), Blocks.ANVIL.getDefaultState());
+				state.getBlock().breakBlock(world, pos, state);
 			}
 		}
+		
 		
 		if (state.getBlock() == Blocks.OBSIDIAN && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemTome) {
-			if (!world.isRemote) {
-			Minecraft.getMinecraft().player.sendChatMessage("set block to enchanting table");
+			if (world.isRemote) {
+				event.getEntity().playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1.0F, 1.0F);
 			}
-		}
-		
-		if (state.getBlock() == Blocks.IRON_BARS && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemMortar) {
-			if (!world.isRemote) {
-			Minecraft.getMinecraft().player.sendChatMessage("set block to brewing stand");
+			else if(!world.isRemote) {
+				event.getWorld().setBlockState(event.getPos(), Blocks.ENCHANTING_TABLE.getDefaultState());
+				state.getBlock().breakBlock(world, pos, state);
 			}
 		}
 		
 		
-		//Triggers when players try to interact with certain blocks
-		if (state.getBlock() == Blocks.ANVIL) {
-			event.setUseBlock(Result.DENY);	
-			if (!world.isRemote) {
-			Minecraft.getMinecraft().player.sendChatMessage("You're not a Blackmith.");
+		if (state.getBlock() == Blocks.IRON_BARS && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemOrb) {
+			if (world.isRemote) {
+				event.getEntity().playSound(SoundEvents.BLOCK_BREWING_STAND_BREW, 1.0F, 1.0F);
+			}
+			else if(!world.isRemote) {
+				event.getWorld().setBlockState(event.getPos(), Blocks.BREWING_STAND.getDefaultState());
+				state.getBlock().breakBlock(world, pos, state);
 			}
 		}
-		else if (state.getBlock() == Blocks.ENCHANTING_TABLE) {
-			event.setUseBlock(Result.DENY);
-			if (!world.isRemote) {
-			Minecraft.getMinecraft().player.sendChatMessage("You're not an Enchanter.");
-			}
-		}
-		else if (state.getBlock() == Blocks.BREWING_STAND) {
-			event.setUseBlock(Result.DENY);
-			if (!world.isRemote) {
-			Minecraft.getMinecraft().player.sendChatMessage("You're not an Alchemist.");
-			}
-		}
-		
 	}
-	
+		
+		
+	//Events triggered by right clicking on a block
+	@SubscribeEvent
+	public void onPlayerRightClick(RightClickBlock event) {
+		
+		World world = event.getWorld();
+		BlockPos pos = event.getPos();
+		IBlockState state = world.getBlockState(pos);
+		EntityPlayer player = event.getEntityPlayer();
+				
+			if (state.getBlock() == Blocks.ANVIL && event.getEntityPlayer().getHeldItemMainhand().getItem() != ItemList.itemHammer) {
+				event.setUseBlock(Result.DENY);	
+				if (!world.isRemote) {
+				//Minecraft.getMinecraft().player.sendChatMessage("You're not a Blackmith.");
+				}
+			}
+		
+			if (state.getBlock() == Blocks.BREWING_STAND && event.getEntityPlayer().getHeldItemMainhand().getItem() != ItemList.itemOrb) {
+				event.setUseBlock(Result.DENY);	
+				if (!world.isRemote) {
+				//Minecraft.getMinecraft().player.sendChatMessage("You're not an Alchemist.");
+				}
+			}
+			
+			if (state.getBlock() == Blocks.ENCHANTING_TABLE && event.getEntityPlayer().getHeldItemMainhand().getItem() != ItemList.itemTome) {
+				event.setUseBlock(Result.DENY);	
+				if (!world.isRemote) {
+				//Minecraft.getMinecraft().player.sendChatMessage("You're not a Enchanter.");
+			}
+		
+		}
+	}
 	
 }

@@ -28,7 +28,7 @@ public class ItemCan extends Item {
     //Changes name colour in tooltip
     @Override
     public EnumRarity getRarity(ItemStack stack) {
-        return EnumRarity.COMMON;
+        return EnumRarity.UNCOMMON;
     }
 
     //Displays enchantment glow

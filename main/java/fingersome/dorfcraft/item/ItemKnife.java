@@ -11,9 +11,9 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ItemChisel extends Item {
+public class ItemKnife extends Item {
 
-    public ItemChisel(String name) {
+    public ItemKnife(String name) {
         setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tab);
         setMaxStackSize(1);
@@ -21,7 +21,7 @@ public class ItemChisel extends Item {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        //tooltip.add("Used for smithing arms and armor");
+        tooltip.add("Exceedingly sharp... but very brittle.");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 
@@ -36,9 +36,10 @@ public class ItemChisel extends Item {
     public boolean hasEffect(ItemStack stack) {
         return false;
     }
-    
-    public static void registerRender(Item item) {
-    	
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ItemInfo.ITEM_CHISEL_UNLOCALIZED, "inventory"));
-    }
+
+	public static void registerRender(Item item) {
+
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ItemInfo.ITEM_KNIFE_UNLOCALIZED, "inventory"));
+
+	}
 }

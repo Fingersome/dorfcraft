@@ -44,7 +44,7 @@ public class Dorfcraft
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ItemList.itemMaskKing,1);
+			return new ItemStack(ItemList.itemHammer,1);
 		}
 	};
 	
@@ -83,7 +83,7 @@ public class Dorfcraft
 	     System.out.println("postInit()");
 	       
 		//REMOVE VANILLA CRAFTING RECIPES
-	    RecipeManager.removeVanillaRecipes();
+	    //RecipeManager.removeVanillaRecipes();
 	
 	 	proxy.postInit(event);
 	 }

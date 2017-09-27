@@ -1,15 +1,16 @@
 # Creative tabs
 itemGroup.dorfcraft=Dorfcraft
 #
-# Baubles
-item.item_mask_king.name=Crown of the King
-item.item_mask_necro.name=Mask of the Betrayer
+# Armor
+item.item_helm_crown.name=Crown of the King
+item.item_helm_necro.name=Mask of the Betrayer
 #
 # Items
-item.item_hammer.name=Hammer
-item.item_chisel.name=Chisel
-item.item_saw.name=Saw
-item.item_knife.name=Knife
 item.item_can.name=Watering Can
-item.item_mortar.name=Mortar and Pestle
-item.item_tome.name=Arcane Tome
+item.item_chisel.name=Chisel
+item.item_hammer.name=Hammer
+item.item_orb.name=Orb
+item.item_tome.name=Tome
+item.item_knife.name=Traitor's Shiv
+item.item_rod_king.name=Rod of Law
+item.item_rod_bone.name=Rod of Bones

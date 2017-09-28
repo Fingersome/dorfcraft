@@ -6,6 +6,7 @@ import fingersome.dorfcraft.handlers.MaterialHandler;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -16,8 +17,8 @@ public class ItemList
 	//DECLARE ITEMS
 
 	public static Item itemHelmetCrown;
-	public static Item itemHelmetNecro;
 	public static Item itemRodKing;
+	public static Item itemHelmetNecro;
 	public static Item itemRodBone;
 	
 	public static Item itemChisel;
@@ -32,8 +33,8 @@ public class ItemList
 
 
 	        itemHelmetCrown 	= new ItemHelmetCrown	(ItemInfo.ITEM_HELMET_CROWN_UNLOCALIZED, Dorfcraft.tab, MaterialHandler.ARMOR_KING, 0, EntityEquipmentSlot.HEAD);
-	        itemHelmetNecro 	= new ItemHelmetNecro	(ItemInfo.ITEM_HELMET_NECRO_UNLOCALIZED, Dorfcraft.tab, MaterialHandler.ARMOR_NECRO, 0, EntityEquipmentSlot.HEAD);
 	        itemRodKing			= new ItemRodKing		(ItemInfo.ITEM_ROD_KING_UNLOCALIZED);
+	        itemHelmetNecro 	= new ItemHelmetNecro	(ItemInfo.ITEM_HELMET_NECRO_UNLOCALIZED, Dorfcraft.tab, MaterialHandler.ARMOR_NECRO, 0, EntityEquipmentSlot.HEAD);
 	        itemRodBone			= new ItemRodBone		(ItemInfo.ITEM_ROD_BONE_UNLOCALIZED);
 	        
 	        itemChisel 	= new ItemChisel	(ItemInfo.ITEM_CHISEL_UNLOCALIZED);
@@ -41,7 +42,7 @@ public class ItemList
 	        itemHammer 	= new ItemHammer	(ItemInfo.ITEM_HAMMER_UNLOCALIZED);
 	        itemOrb		= new ItemOrb		(ItemInfo.ITEM_ORB_UNLOCALIZED);
 	        itemTome	= new ItemTome		(ItemInfo.ITEM_TOME_UNLOCALIZED);
-	        itemKnife	= new ItemKnife		(ItemInfo.ITEM_KNIFE_UNLOCALIZED);
+	        itemKnife	= new ItemKnife		(MaterialHandler.SWORD_NECRO, ItemInfo.ITEM_KNIFE_UNLOCALIZED);
 	        
 	        
 	        registerItems();
@@ -50,8 +51,8 @@ public class ItemList
 	    public static void registerItems() {
 
 	        GameRegistry.register(itemHelmetCrown);
-	        GameRegistry.register(itemHelmetNecro);
 	        GameRegistry.register(itemRodKing, 	new ResourceLocation(ModInfo.MODID, ItemInfo.ITEM_ROD_KING_UNLOCALIZED));
+	        GameRegistry.register(itemHelmetNecro);
 	        GameRegistry.register(itemRodBone, 	new ResourceLocation(ModInfo.MODID, ItemInfo.ITEM_ROD_BONE_UNLOCALIZED));
 	        
 	        GameRegistry.register(itemChisel, 	new ResourceLocation(ModInfo.MODID, ItemInfo.ITEM_CHISEL_UNLOCALIZED));
@@ -68,8 +69,8 @@ public class ItemList
 	    public static void registerRenders() {      
 
 	    	ItemHelmetCrown.registerRender	(itemHelmetCrown);
-	    	ItemHelmetNecro.registerRender	(itemHelmetNecro);
 	    	ItemRodKing.registerRender		(itemRodKing);
+	    	ItemHelmetNecro.registerRender	(itemHelmetNecro);
 	    	ItemRodBone.registerRender		(itemRodBone);
 	    	
 	    	ItemChisel.registerRender		(itemChisel);

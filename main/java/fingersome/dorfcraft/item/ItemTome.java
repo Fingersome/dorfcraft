@@ -16,11 +16,12 @@ public class ItemTome extends Item {
     public ItemTome(String name) {
         setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tab);
+        setMaxStackSize(1);
     }   
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        //tooltip.add("Used for smithing arms and armor");
+        tooltip.add("Used to Enchant items in the Enchanting Table");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 

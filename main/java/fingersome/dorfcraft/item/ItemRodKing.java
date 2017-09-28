@@ -21,7 +21,7 @@ public class ItemRodKing extends Item {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        //tooltip.add("Used for smithing arms and armor");
+        tooltip.add("Summons an altar to the mighty Kraang!");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 

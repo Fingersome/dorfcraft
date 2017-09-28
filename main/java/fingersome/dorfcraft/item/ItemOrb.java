@@ -21,7 +21,7 @@ public class ItemOrb extends Item {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        //tooltip.add("Used for smithing arms and armor");
+        tooltip.add("Used to Transmute items in the Cauldron");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 

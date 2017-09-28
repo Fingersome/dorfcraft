@@ -41,7 +41,7 @@ public class EventManager {
 	//Event triggered when a player logs in
 	@SubscribeEvent	
 	public void onPlayerJoinEvent(PlayerEvent.PlayerLoggedInEvent event) {
-		event.player.setGameType(GameType.SPECTATOR);
+		//event.player.setGameType(GameType.SPECTATOR);
 		
 		if(playerTeam == "dorf") {
 			event.player.addSuffix(new TextComponentString((TextFormatting.AQUA) + " the " + playerTeam));
@@ -57,6 +57,18 @@ public class EventManager {
 	}
 	
 
+	//Events triggered by breaking a block
+	@SubscribeEvent
+	public void onBlockBrokenEvent(BlockEvent.BreakEvent event) {
+		
+		World world = event.getWorld();
+		BlockPos pos = event.getPos();
+		IBlockState state = world.getBlockState(pos);
+		EntityPlayer player = event.getPlayer();
+		
+		
+	}
+	
 	//Events triggered by left clicking on a block
 	@SubscribeEvent
 	public void onPlayerLeftClickBlock(LeftClickBlock event) {
@@ -68,10 +80,29 @@ public class EventManager {
 
 		//Triggers when certain items are used on certain blocks
 
-		
-		if (state.getBlock() == Blocks.IRON_BLOCK && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemHammer) {
+		if (state.getBlock() == Blocks.STONE && player.getHeldItemMainhand().getItem() == ItemList.itemChisel) {
 			if (world.isRemote) {
-				event.getEntity().playSound(SoundEvents.BLOCK_ANVIL_PLACE, 1.0F, 1.0F);
+				player.playSound(SoundEvents.BLOCK_STONE_HIT, 1.0F, 1.0F);
+			}
+			else if(!world.isRemote) {
+				event.getWorld().setBlockState(event.getPos(), Blocks.STONEBRICK.getDefaultState());
+				state.getBlock().breakBlock(world, pos, state);
+			}
+		}		
+		
+		if (state.getBlock() == Blocks.STONEBRICK && player.getHeldItemMainhand().getItem() == ItemList.itemChisel) {
+			if (world.isRemote) {
+				player.playSound(SoundEvents.BLOCK_STONE_HIT, 1.0F, 1.0F);
+			}
+			else if(!world.isRemote) {
+				event.getWorld().setBlockState(event.getPos(), Blocks.STONEBRICK.getStateFromMeta(3));
+				state.getBlock().breakBlock(world, pos, state);
+			}
+		}		
+		
+		if (state.getBlock() == Blocks.IRON_BLOCK && player.getHeldItemMainhand().getItem() == ItemList.itemHammer) {
+			if (world.isRemote) {
+				player.playSound(SoundEvents.BLOCK_ANVIL_PLACE, 1.0F, 1.0F);
 			}
 			else if(!world.isRemote) {
 				event.getWorld().setBlockState(event.getPos(), Blocks.ANVIL.getDefaultState());
@@ -79,10 +110,29 @@ public class EventManager {
 			}
 		}
 		
-		
-		if (state.getBlock() == Blocks.OBSIDIAN && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemTome) {
+		if (state.getBlock() == Blocks.COBBLESTONE && player.getHeldItemMainhand().getItem() == ItemList.itemHammer) {
 			if (world.isRemote) {
-				event.getEntity().playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1.0F, 1.0F);
+				player.playSound(SoundEvents.BLOCK_STONE_PLACE, 1.0F, 1.0F);
+			}
+			else if(!world.isRemote) {
+				event.getWorld().setBlockState(event.getPos(), Blocks.FURNACE.getDefaultState());
+				state.getBlock().breakBlock(world, pos, state);
+			}
+		}
+		
+		if (state.getBlock() == Blocks.COBBLESTONE && player.getHeldItemMainhand().getItem() == ItemList.itemTome) {
+			if (world.isRemote) {
+				player.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1.0F, 1.0F);
+			}
+			else if(!world.isRemote) {
+				event.getWorld().setBlockState(event.getPos(), Blocks.DISPENSER.getDefaultState());
+				state.getBlock().breakBlock(world, pos, state);
+			}
+		}
+		
+		if (state.getBlock() == Blocks.OBSIDIAN && player.getHeldItemMainhand().getItem() == ItemList.itemTome) {
+			if (world.isRemote) {
+				player.playSound(SoundEvents.BLOCK_ENCHANTMENT_TABLE_USE, 1.0F, 1.0F);
 			}
 			else if(!world.isRemote) {
 				event.getWorld().setBlockState(event.getPos(), Blocks.ENCHANTING_TABLE.getDefaultState());
@@ -93,10 +143,20 @@ public class EventManager {
 		
 		if (state.getBlock() == Blocks.IRON_BARS && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemOrb) {
 			if (world.isRemote) {
-				event.getEntity().playSound(SoundEvents.BLOCK_BREWING_STAND_BREW, 1.0F, 1.0F);
+				player.playSound(SoundEvents.BLOCK_BREWING_STAND_BREW, 1.0F, 1.0F);
 			}
 			else if(!world.isRemote) {
 				event.getWorld().setBlockState(event.getPos(), Blocks.BREWING_STAND.getDefaultState());
+				state.getBlock().breakBlock(world, pos, state);
+			}
+		}
+		
+		if (state.getBlock() == Blocks.IRON_BLOCK && event.getEntityPlayer().getHeldItemMainhand().getItem() == ItemList.itemOrb) {
+			if (world.isRemote) {
+				player.playSound(SoundEvents.ITEM_BUCKET_FILL, 1.0F, 1.0F);
+			}
+			else if(!world.isRemote) {
+				event.getWorld().setBlockState(event.getPos(), Blocks.CAULDRON.getDefaultState());
 				state.getBlock().breakBlock(world, pos, state);
 			}
 		}

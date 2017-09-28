@@ -10,16 +10,19 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 
-public class ItemKnife extends Item {
+public class ItemKnife extends ItemSword {
 
-    public ItemKnife(String name) {
-        setUnlocalizedName(name);
+   
+    public ItemKnife(ToolMaterial material, String name) {
+	super(material);
+		setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tab);
         setMaxStackSize(1);
-    }   
+	}
 
-    @Override
+	@Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
         tooltip.add("Exceedingly sharp... but very brittle.");
         super.addInformation(stack, playerIn, tooltip, advanced);

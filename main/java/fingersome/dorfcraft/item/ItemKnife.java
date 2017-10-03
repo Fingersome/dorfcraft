@@ -4,6 +4,7 @@ import java.util.List;
 
 import fingersome.dorfcraft.Dorfcraft;
 import fingersome.dorfcraft.ModInfo;
+import fingersome.dorfcraft.handlers.TabHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,7 +19,7 @@ public class ItemKnife extends ItemSword {
     public ItemKnife(ToolMaterial material, String name) {
 	super(material);
 		setUnlocalizedName(name);
-        setCreativeTab(Dorfcraft.tab);
+        setCreativeTab(Dorfcraft.tabZombie);
         setMaxStackSize(1);
 	}
 

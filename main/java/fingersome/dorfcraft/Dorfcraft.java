@@ -1,5 +1,6 @@
 package fingersome.dorfcraft;
 
+import fingersome.dorfcraft.block.BlockList;
 import fingersome.dorfcraft.command.CommandCheckMoonPhase;
 import fingersome.dorfcraft.command.CommandGameNew;
 import fingersome.dorfcraft.command.CommandTeamQuery;
@@ -31,20 +32,47 @@ public class Dorfcraft
 
 	public static CommonProxy proxy;
 	public static ItemList items;
+	public static BlockList blocks;
 
 	@Instance(ModInfo.MODID)
 	public static Dorfcraft instance;
 
-	public static CreativeTabs tab = new CreativeTabs("dorfcraft") {
-    	@Override
-    	public String getTabLabel() {
-    		return "dorfcraft";
-    	}
-    	
+	public static CreativeTabs tabCommand = new CreativeTabs("tab_command") {
+		@Override
+		public String getTabLabel() {
+			return "tab_command";
+		}
+		
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ItemList.itemHelmetCrown,1);
+		}
+	};
+
+	public static CreativeTabs tabDorf = new CreativeTabs("tab_dorf") {
+		@Override
+		public String getTabLabel() {
+			return "tab_dorf";
+		}
+		
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
 			return new ItemStack(ItemList.itemHammer,1);
+		}
+	};
+	
+	public static CreativeTabs tabZombie = new CreativeTabs("tab_zombie") {
+		@Override
+		public String getTabLabel() {
+			return "tab_zombie";
+		}
+		
+		@Override
+		@SideOnly(Side.CLIENT)
+		public ItemStack getTabIconItem() {
+			return new ItemStack(ItemList.itemKnife,1);
 		}
 	};
 	
@@ -59,8 +87,9 @@ public class Dorfcraft
 	     	MinecraftForge.EVENT_BUS.register(new GameManager());
 		
 	    ConfigManager.init(event.getSuggestedConfigurationFile());
-	   
+
 	 	items.init();
+	 	blocks.init();
 		proxy.preInit(event);
 	     
 	 }

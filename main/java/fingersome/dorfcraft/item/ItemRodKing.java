@@ -4,6 +4,7 @@ import java.util.List;
 
 import fingersome.dorfcraft.Dorfcraft;
 import fingersome.dorfcraft.ModInfo;
+import fingersome.dorfcraft.handlers.TabHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,7 +16,7 @@ public class ItemRodKing extends Item {
 
     public ItemRodKing(String name) {
         setUnlocalizedName(name);
-        setCreativeTab(Dorfcraft.tab);
+        setCreativeTab(Dorfcraft.tabCommand);
         setMaxStackSize(1);
     }   
 

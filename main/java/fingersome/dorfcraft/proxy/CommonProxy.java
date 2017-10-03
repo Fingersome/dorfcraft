@@ -15,6 +15,7 @@ public class CommonProxy
 	public void preInit(FMLPreInitializationEvent event) {
 		System.out.println("Proxy PreInit");
 		
+		//RegisterUtil.registerAll(event);
 		CapabilityManager.INSTANCE.register(ITeam.class, new TeamStorage(), Team.class);
 
 		PacketHandler.registerMessages();

@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "dorfcraft:blocks/blockRuneforge_base",
+        "side": "dorfcraft:blocks/blockRuneforge_side"
+    }
+}

@@ -1,5 +1,7 @@
 # Creative tabs
-itemGroup.dorfcraft=Dorfcraft
+itemGroup.tab_command=Command
+itemGroup.tab_dorf=Dorfs
+itemGroup.tab_zombie=Zombies
 #
 # Armor
 item.item_helm_crown.name=Crown of the King
@@ -14,3 +16,6 @@ item.item_tome.name=Tome
 item.item_knife.name=Traitor's Shiv
 item.item_rod_king.name=Rod of Law
 item.item_rod_bone.name=Rod of Bones
+#
+# Blocks
+tile.blockRuneforge.name=Runeforge

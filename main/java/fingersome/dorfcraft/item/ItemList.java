@@ -3,6 +3,7 @@ package fingersome.dorfcraft.item;
 import fingersome.dorfcraft.Dorfcraft;
 import fingersome.dorfcraft.ModInfo;
 import fingersome.dorfcraft.handlers.MaterialHandler;
+import fingersome.dorfcraft.handlers.TabHandler;
 import net.minecraft.block.Block;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -32,9 +33,9 @@ public class ItemList
 	    public static void init() {
 
 
-	        itemHelmetCrown 	= new ItemHelmetCrown	(ItemInfo.ITEM_HELMET_CROWN_UNLOCALIZED, Dorfcraft.tab, MaterialHandler.ARMOR_KING, 0, EntityEquipmentSlot.HEAD);
+	        itemHelmetCrown 	= new ItemHelmetCrown	(ItemInfo.ITEM_HELMET_CROWN_UNLOCALIZED, Dorfcraft.tabCommand, MaterialHandler.ARMOR_KING, 0, EntityEquipmentSlot.HEAD);
 	        itemRodKing			= new ItemRodKing		(ItemInfo.ITEM_ROD_KING_UNLOCALIZED);
-	        itemHelmetNecro 	= new ItemHelmetNecro	(ItemInfo.ITEM_HELMET_NECRO_UNLOCALIZED, Dorfcraft.tab, MaterialHandler.ARMOR_NECRO, 0, EntityEquipmentSlot.HEAD);
+	        itemHelmetNecro 	= new ItemHelmetNecro	(ItemInfo.ITEM_HELMET_NECRO_UNLOCALIZED, Dorfcraft.tabCommand, MaterialHandler.ARMOR_NECRO, 0, EntityEquipmentSlot.HEAD);
 	        itemRodBone			= new ItemRodBone		(ItemInfo.ITEM_ROD_BONE_UNLOCALIZED);
 	        
 	        itemChisel 	= new ItemChisel	(ItemInfo.ITEM_CHISEL_UNLOCALIZED);

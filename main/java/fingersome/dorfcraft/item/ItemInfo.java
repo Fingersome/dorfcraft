@@ -6,8 +6,8 @@ public class ItemInfo
 {
 	
 
-	public static final String ITEM_HELMET_CROWN_UNLOCALIZED 		= "item_helm_crown";
-	public static final String ITEM_HELMET_NECRO_UNLOCALIZED 		= "item_helm_necro";
+	public static final String ITEM_HELMET_CROWN_UNLOCALIZED 		= "helm_crown";
+	public static final String ITEM_HELMET_NECRO_UNLOCALIZED 		= "helm_necro";
 	
 	public static final String ITEM_ROD_KING_UNLOCALIZED 			= "item_rod_king";
 	public static final String ITEM_ROD_BONE_UNLOCALIZED 			= "item_rod_bone";
@@ -17,11 +17,17 @@ public class ItemInfo
 	public static final String ITEM_TOME_UNLOCALIZED 				= "item_tome";
 	public static final String ITEM_ORB_UNLOCALIZED 				= "item_orb";
 	public static final String ITEM_CAN_UNLOCALIZED 				= "item_can";
-	public static final String ITEM_KNIFE_UNLOCALIZED 				= "item_knife";
-		
-	public static final String ITEM_CHAIN_UNLOCALIZED 				= "itemChain";
-	public static final String ITEM_PLATE_IRON_UNLOCALIZED 			= "itemPlateIron";
-	public static final String ITEM_PLATE_MITHRIL_UNLOCALIZED 		= "itemPlateMithril";	
+
+	public static final String ITEM_CHAIN_IRON_UNLOCALIZED 			= "chain_iron";
+	public static final String ITEM_CHAIN_MITHRIL_UNLOCALIZED 		= "chain_mithril";
+	public static final String ITEM_PLATE_IRON_UNLOCALIZED 			= "plate_iron";
+	public static final String ITEM_PLATE_MITHRIL_UNLOCALIZED 		= "plate_mithril";	
+
+	public static final String TOOL_NECRO_KNIFE_UNLOCALIZED 		= "tool_necro_knife";
+
+	public static final String TOOL_RUSTY_PICK_UNLOCALIZED 			= "tool_rusty_pick";
+	public static final String TOOL_RUSTY_SWORD_UNLOCALIZED 		= "tool_rusty_sword";
+	public static final String TOOL_RUSTY_KNIFE_UNLOCALIZED 		= "tool_rusty_knife";
 		
 	public static final String ARMOR_MITHRIL_CAP_UNLOCALIZED 		= "armor_mithril_helm";
 	public static final String ARMOR_MITHRIL_CHEST_UNLOCALIZED 		= "armor_mithril_chest";

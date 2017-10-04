@@ -27,7 +27,12 @@ public class ItemList
 	public static Item itemHammer;
 	public static Item itemOrb;
 	public static Item itemTome;
-	public static Item itemKnife;
+
+	public static Item toolNecroKnife;
+	
+	public static Item toolRustyPick;
+	public static Item toolRustySword;
+	public static Item toolRustyKnife;
 
 		
 	    public static void init() {
@@ -38,12 +43,18 @@ public class ItemList
 	        itemHelmetNecro 	= new ItemHelmetNecro	(ItemInfo.ITEM_HELMET_NECRO_UNLOCALIZED, Dorfcraft.tabCommand, MaterialHandler.ARMOR_NECRO, 0, EntityEquipmentSlot.HEAD);
 	        itemRodBone			= new ItemRodBone		(ItemInfo.ITEM_ROD_BONE_UNLOCALIZED);
 	        
-	        itemChisel 	= new ItemChisel	(ItemInfo.ITEM_CHISEL_UNLOCALIZED);
-	        itemCan		= new ItemCan		(ItemInfo.ITEM_CAN_UNLOCALIZED);
-	        itemHammer 	= new ItemHammer	(ItemInfo.ITEM_HAMMER_UNLOCALIZED);
-	        itemOrb		= new ItemOrb		(ItemInfo.ITEM_ORB_UNLOCALIZED);
-	        itemTome	= new ItemTome		(ItemInfo.ITEM_TOME_UNLOCALIZED);
-	        itemKnife	= new ItemKnife		(MaterialHandler.SWORD_NECRO, ItemInfo.ITEM_KNIFE_UNLOCALIZED);
+	        itemChisel 		= new ItemChisel		(ItemInfo.ITEM_CHISEL_UNLOCALIZED);
+	        itemCan			= new ItemCan			(ItemInfo.ITEM_CAN_UNLOCALIZED);
+	        itemHammer	 	= new ItemHammer		(ItemInfo.ITEM_HAMMER_UNLOCALIZED);
+	        itemOrb			= new ItemOrb			(ItemInfo.ITEM_ORB_UNLOCALIZED);
+	        itemTome		= new ItemTome			(ItemInfo.ITEM_TOME_UNLOCALIZED);
+
+	        toolNecroKnife	= new ToolNecroKnife	(MaterialHandler.NECRO_KNIFE, ItemInfo.TOOL_NECRO_KNIFE_UNLOCALIZED);
+
+	        toolRustyPick	= new ToolRustyPick		(MaterialHandler.RUSTY_PICK, 	ItemInfo.TOOL_RUSTY_PICK_UNLOCALIZED);
+	        toolRustySword	= new ToolRustySword	(MaterialHandler.RUSTY_SWORD, 	ItemInfo.TOOL_RUSTY_SWORD_UNLOCALIZED);
+	        toolRustyKnife	= new ToolRustyKnife	(MaterialHandler.RUSTY_KNIFE, 	ItemInfo.TOOL_RUSTY_KNIFE_UNLOCALIZED);
+	        
 	        
 	        
 	        registerItems();
@@ -61,7 +72,12 @@ public class ItemList
 	        GameRegistry.register(itemHammer, 	new ResourceLocation(ModInfo.MODID, ItemInfo.ITEM_HAMMER_UNLOCALIZED));
 	        GameRegistry.register(itemOrb, 		new ResourceLocation(ModInfo.MODID, ItemInfo.ITEM_ORB_UNLOCALIZED));
 	        GameRegistry.register(itemTome, 	new ResourceLocation(ModInfo.MODID, ItemInfo.ITEM_TOME_UNLOCALIZED));	
-	        GameRegistry.register(itemKnife, 	new ResourceLocation(ModInfo.MODID, ItemInfo.ITEM_KNIFE_UNLOCALIZED));	        
+
+	        GameRegistry.register(toolNecroKnife, 	new ResourceLocation(ModInfo.MODID, ItemInfo.TOOL_NECRO_KNIFE_UNLOCALIZED));	
+
+	        GameRegistry.register(toolRustyPick, 	new ResourceLocation(ModInfo.MODID, ItemInfo.TOOL_RUSTY_PICK_UNLOCALIZED));    
+	        GameRegistry.register(toolRustySword, 	new ResourceLocation(ModInfo.MODID, ItemInfo.TOOL_RUSTY_SWORD_UNLOCALIZED)); 
+	        GameRegistry.register(toolRustyKnife, 	new ResourceLocation(ModInfo.MODID, ItemInfo.TOOL_RUSTY_KNIFE_UNLOCALIZED));
 
 	    }
 	    
@@ -79,7 +95,12 @@ public class ItemList
 	    	ItemHammer.registerRender		(itemHammer);
 	    	ItemOrb.registerRender			(itemOrb);
 	    	ItemTome.registerRender			(itemTome);
-	    	ItemKnife.registerRender		(itemKnife);
+
+	    	ToolNecroKnife.registerRender		(toolNecroKnife);
+	    	
+	    	ToolRustyPick.registerRender		(toolRustyPick);
+	    	ToolRustySword.registerRender		(toolRustySword);
+	    	ToolRustyKnife.registerRender		(toolRustyKnife);
 
 	    	
 	    }

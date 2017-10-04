@@ -1,6 +1,6 @@
 {
     "parent" : "item/handheld",
     "textures" : {
-        "layer0" : "dorfcraft:items/item_helm_crown"
+        "layer0" : "dorfcraft:items/tool_rusty_pick"
     }
 }

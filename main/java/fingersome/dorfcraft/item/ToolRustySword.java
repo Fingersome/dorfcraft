@@ -13,10 +13,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
-public class ItemKnife extends ItemSword {
+public class ToolRustySword extends ItemSword {
 
    
-    public ItemKnife(ToolMaterial material, String name) {
+    public ToolRustySword(ToolMaterial material, String name) {
 	super(material);
 		setUnlocalizedName(name);
         setCreativeTab(Dorfcraft.tabZombie);
@@ -25,14 +25,13 @@ public class ItemKnife extends ItemSword {
 
 	@Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        tooltip.add("Exceedingly sharp... but very brittle.");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 
     //Changes name colour in tooltip
     @Override
     public EnumRarity getRarity(ItemStack stack) {
-        return EnumRarity.UNCOMMON;
+        return EnumRarity.COMMON;
     }
 
     //Displays enchantment glow
@@ -43,7 +42,7 @@ public class ItemKnife extends ItemSword {
 
 	public static void registerRender(Item item) {
 
-        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ItemInfo.ITEM_KNIFE_UNLOCALIZED, "inventory"));
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ItemInfo.TOOL_RUSTY_SWORD_UNLOCALIZED, "inventory"));
 
 	}
 }

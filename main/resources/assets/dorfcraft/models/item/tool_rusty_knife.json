@@ -1,6 +1,6 @@
 {
     "parent" : "item/handheld",
     "textures" : {
-        "layer0" : "dorfcraft:items/item_knife"
+        "layer0" : "dorfcraft:items/tool_rusty_knife"
     }
 }

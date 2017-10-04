@@ -4,8 +4,8 @@ itemGroup.tab_dorf=Dorfs
 itemGroup.tab_zombie=Zombies
 #
 # Armor
-item.item_helm_crown.name=Crown of the King
-item.item_helm_necro.name=Mask of the Betrayer
+item.helm_crown.name=Crown of the King
+item.helm_necro.name=Mask of the Betrayer
 #
 # Items
 item.item_can.name=Watering Can
@@ -13,9 +13,12 @@ item.item_chisel.name=Chisel
 item.item_hammer.name=Hammer
 item.item_orb.name=Orb
 item.item_tome.name=Tome
-item.item_knife.name=Traitor's Shiv
 item.item_rod_king.name=Rod of Law
 item.item_rod_bone.name=Rod of Bones
+item.tool_necro_knife.name=Traitor's Shiv
+item.tool_rusty_knife.name=Rusty Knife
+item.tool_rusty_sword.name=Rusty Sword
+item.tool_rusty_pick.name=Rusty Pickaxe
 #
 # Blocks
 tile.blockRuneforge.name=Runeforge

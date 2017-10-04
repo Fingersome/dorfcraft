@@ -45,7 +45,7 @@ public class TabHandler {
 			@Override
 			@SideOnly(Side.CLIENT)
 			public ItemStack getTabIconItem() {
-				return new ItemStack(ItemList.itemKnife,1);
+				return new ItemStack(ItemList.toolNecroKnife,1);
 			}
 		};
 	}

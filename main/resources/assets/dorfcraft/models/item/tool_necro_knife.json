@@ -1,6 +1,6 @@
 {
     "parent" : "item/handheld",
     "textures" : {
-        "layer0" : "dorfcraft:items/item_helm_necro"
+        "layer0" : "dorfcraft:items/tool_necro_knife"
     }
 }

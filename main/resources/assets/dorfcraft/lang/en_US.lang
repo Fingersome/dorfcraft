@@ -8,11 +8,13 @@ item.helm_crown.name=Crown of the King
 item.helm_necro.name=Mask of the Betrayer
 #
 # Items
-item.item_can.name=Watering Can
+item.item_tome.name=Tome
+item.item_handpick.name=Handpick
 item.item_chisel.name=Chisel
+item.item_can.name=Watering Can
 item.item_hammer.name=Hammer
 item.item_orb.name=Orb
-item.item_tome.name=Tome
+item.item_quill.name=Quill
 item.item_rod_king.name=Rod of Law
 item.item_rod_bone.name=Rod of Bones
 item.tool_necro_knife.name=Traitor's Shiv
@@ -21,4 +23,4 @@ item.tool_rusty_sword.name=Rusty Sword
 item.tool_rusty_pick.name=Rusty Pickaxe
 #
 # Blocks
-tile.blockRuneforge.name=Runeforge
+tile.block_scribingtable.name=Scribing Table

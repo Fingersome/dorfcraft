@@ -8,6 +8,7 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -24,14 +25,14 @@ import net.minecraft.world.World;
 
 public class ItemHelmetCrown extends ItemArmorBase {
 
-	 
+
 	public ItemHelmetCrown(String name, CreativeTabs tab, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(name, tab, materialIn, renderIndexIn, equipmentSlotIn);
 	}
 
 		@Override
 	    public void addInformation(ItemStack stack, EntityPlayer player, List<String> tooltip, boolean advanced) {
-	        tooltip.add("A glittering crown, fit for a king.");
+	        tooltip.add("Nearby dorfs are granted resistance.");
 	        super.addInformation(stack, player, tooltip, advanced);
 	    }
 
@@ -44,7 +45,13 @@ public class ItemHelmetCrown extends ItemArmorBase {
 		public EnumRarity getRarity(ItemStack stack) {
 			return EnumRarity.EPIC;
 		}
-	    
+		
+		@Override
+		public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type)
+		{
+		    return ModInfo.MODID + ":textures/models/armor/" + ItemInfo.ARMOR_KING_UNLOCALIZED;
+		}
+
 		public static void registerRender(Item item) {
 
 	        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(item, 0, new ModelResourceLocation(ModInfo.MODID + ":" + ItemInfo.ITEM_HELMET_CROWN_UNLOCALIZED, "inventory"));		
@@ -52,8 +59,7 @@ public class ItemHelmetCrown extends ItemArmorBase {
 		
 		@Override
 		public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-			player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 100, 0));
-
+			
 		}
 
 }

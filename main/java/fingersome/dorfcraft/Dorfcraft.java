@@ -46,7 +46,7 @@ public class Dorfcraft
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {
-			return new ItemStack(ItemList.itemHelmetCrown,1);
+			return new ItemStack(ItemList.helmetCrown,1);
 		}
 	};
 

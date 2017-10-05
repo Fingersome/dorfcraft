@@ -11,7 +11,7 @@ public class BlockList {
 
 	public static void init() {
 		
-		Block blockRuneForge = new BlockRuneforge(Material.ROCK, BlockInfo.BLOCK_RUNEFORGE_UNLOCALIZED);
+		Block blockRuneForge = new BlockScribingTable(Material.ROCK, BlockInfo.BLOCK_RUNEFORGE_UNLOCALIZED);
 
 	}
 	

@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_orientable",
+    "textures": {
+        "top": "dorfcraft:blocks/blockScribingtable_base",
+        "side": "dorfcraft:blocks/blockScribingtable_side"
+    }
+}

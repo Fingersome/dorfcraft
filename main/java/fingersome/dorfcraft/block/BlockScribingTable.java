@@ -3,16 +3,15 @@ package fingersome.dorfcraft.block;
 import java.util.Random;
 
 import fingersome.dorfcraft.Dorfcraft;
-import fingersome.dorfcraft.handlers.TabHandler;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class BlockRuneforge extends BlockBase {
+public class BlockScribingTable extends BlockBase {
 	
-	public BlockRuneforge(Material material, String name) {
+	public BlockScribingTable(Material material, String name) {
 		super(material, name);
         setCreativeTab(CreativeTabs.DECORATIONS);
 		setHardness(5f);

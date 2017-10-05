@@ -6,17 +6,20 @@ public class ItemInfo
 {
 	
 
+	public static final String ITEM_TOME_UNLOCALIZED 				= "item_tome";
+	
 	public static final String ITEM_HELMET_CROWN_UNLOCALIZED 		= "helm_crown";
 	public static final String ITEM_HELMET_NECRO_UNLOCALIZED 		= "helm_necro";
 	
 	public static final String ITEM_ROD_KING_UNLOCALIZED 			= "item_rod_king";
 	public static final String ITEM_ROD_BONE_UNLOCALIZED 			= "item_rod_bone";
-	
+
+	public static final String ITEM_HANDPICK_UNLOCALIZED 			= "item_handpick";
 	public static final String ITEM_CHISEL_UNLOCALIZED 				= "item_chisel";
-	public static final String ITEM_HAMMER_UNLOCALIZED 				= "item_hammer";
-	public static final String ITEM_TOME_UNLOCALIZED 				= "item_tome";
-	public static final String ITEM_ORB_UNLOCALIZED 				= "item_orb";
 	public static final String ITEM_CAN_UNLOCALIZED 				= "item_can";
+	public static final String ITEM_HAMMER_UNLOCALIZED 				= "item_hammer";
+	public static final String ITEM_ORB_UNLOCALIZED 				= "item_orb";
+	public static final String ITEM_QUILL_UNLOCALIZED 				= "item_quill";
 
 	public static final String ITEM_CHAIN_IRON_UNLOCALIZED 			= "chain_iron";
 	public static final String ITEM_CHAIN_MITHRIL_UNLOCALIZED 		= "chain_mithril";
@@ -33,5 +36,8 @@ public class ItemInfo
 	public static final String ARMOR_MITHRIL_CHEST_UNLOCALIZED 		= "armor_mithril_chest";
 	public static final String ARMOR_MITHRIL_LEGS_UNLOCALIZED 		= "armor_mithril_legs";
 	public static final String ARMOR_MITHRIL_SHOES_UNLOCALIZED 		= "armor_mithril_boots";
+
+	public static final String ARMOR_NECRO_UNLOCALIZED 				= "armor_necro";
+	public static final String ARMOR_KING_UNLOCALIZED 				= "armor_king";
 
 }

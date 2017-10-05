@@ -8,8 +8,8 @@ import net.minecraftforge.common.util.EnumHelper;
 
 public class MaterialHandler {
 
-	public static final ArmorMaterial ARMOR_KING = EnumHelper.addArmorMaterial(ItemInfo.ITEM_HELMET_CROWN_UNLOCALIZED, "dorfcraft:models/armor/helm_crown", 0, new int[]{2, 2, 2, 2}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2F);
-	public static final ArmorMaterial ARMOR_NECRO = EnumHelper.addArmorMaterial(ItemInfo.ITEM_HELMET_NECRO_UNLOCALIZED, "dorfcraft:models/armor/helm_necro", 0, new int[]{1, 1, 1, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);	
+	public static final ArmorMaterial ARMOR_KING = EnumHelper.addArmorMaterial(ItemInfo.ITEM_HELMET_CROWN_UNLOCALIZED, ItemInfo.ARMOR_KING_UNLOCALIZED, 0, new int[]{2, 2, 2, 2}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 2F);
+	public static final ArmorMaterial ARMOR_NECRO = EnumHelper.addArmorMaterial(ItemInfo.ITEM_HELMET_NECRO_UNLOCALIZED, ItemInfo.ARMOR_NECRO_UNLOCALIZED, 0, new int[]{1, 1, 1, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0F);	
 
 	public static final ToolMaterial NECRO_KNIFE = EnumHelper.addToolMaterial(ItemInfo.TOOL_NECRO_KNIFE_UNLOCALIZED, 1, 2, 1.0F, 4.0F, 1);
 

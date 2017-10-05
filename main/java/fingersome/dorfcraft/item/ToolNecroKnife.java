@@ -4,7 +4,6 @@ import java.util.List;
 
 import fingersome.dorfcraft.Dorfcraft;
 import fingersome.dorfcraft.ModInfo;
-import fingersome.dorfcraft.handlers.TabHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -32,7 +31,7 @@ public class ToolNecroKnife extends ItemSword {
     //Changes name colour in tooltip
     @Override
     public EnumRarity getRarity(ItemStack stack) {
-        return EnumRarity.UNCOMMON;
+        return EnumRarity.RARE;
     }
 
     //Displays enchantment glow

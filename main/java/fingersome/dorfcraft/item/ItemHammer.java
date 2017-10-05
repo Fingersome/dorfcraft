@@ -4,7 +4,6 @@ import java.util.List;
 
 import fingersome.dorfcraft.Dorfcraft;
 import fingersome.dorfcraft.ModInfo;
-import fingersome.dorfcraft.handlers.TabHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,7 +21,7 @@ public class ItemHammer extends Item {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        tooltip.add("Used to smith arms and armor on the Anvil");
+        tooltip.add("Used to smith items on the Anvil.");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 

@@ -4,7 +4,6 @@ import java.util.List;
 
 import fingersome.dorfcraft.Dorfcraft;
 import fingersome.dorfcraft.ModInfo;
-import fingersome.dorfcraft.handlers.TabHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,13 +15,13 @@ public class ItemTome extends Item {
 
     public ItemTome(String name) {
         setUnlocalizedName(name);
-        setCreativeTab(Dorfcraft.tabDorf);
+        setCreativeTab(Dorfcraft.tabCommand);
         setMaxStackSize(1);
     }   
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        tooltip.add("Used to Enchant items in the Enchanting Table");
+        tooltip.add("Unsure of the rules? Look inside.");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 
@@ -35,7 +34,7 @@ public class ItemTome extends Item {
     //Displays enchantment glow
     @Override
     public boolean hasEffect(ItemStack stack) {
-        return false;
+        return true;
     }
 
 	public static void registerRender(Item item) {
